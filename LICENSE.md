@@ -3,6 +3,7 @@ The MIT License (MIT)
 
 Copyright © `<2013-2014>` `<Colin Duquesnoy>`
 Copyright © `<2015-2016>` `<Alex Huszagh>`
+Copyright © `<2020-2021>` `<Adam Rose>`
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation
