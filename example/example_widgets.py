@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtCore import Qt
 
 
 class Example(QtWidgets.QMainWindow):
@@ -206,7 +206,6 @@ class Example(QtWidgets.QMainWindow):
         item = QtWidgets.QListWidgetItem()
         self.listWidgetDis.addItem(item)
 
-
         self.treeWidget.setToolTip("This is a tool tip")
         self.treeWidget.setStatusTip("This is a status tip")
         self.treeWidget.setWhatsThis("This is \"what is this\"")
@@ -219,17 +218,25 @@ class Example(QtWidgets.QMainWindow):
         self.treeWidget.topLevelItem(0).setText(0, "New Item")
         self.treeWidget.topLevelItem(0).child(0).setText(0, "New Subitem")
         self.treeWidget.topLevelItem(0).child(0).setText(1, "Test")
-        self.treeWidget.topLevelItem(0).child(0).child(0).setText(0, "New Subitem")
-        self.treeWidget.topLevelItem(0).child(0).child(1).setText(0, "New Item")
-        self.treeWidget.topLevelItem(0).child(0).child(2).setText(0, "New Item")
-        self.treeWidget.topLevelItem(0).child(0).child(3).setText(0, "New Item")
-        self.treeWidget.topLevelItem(0).child(0).child(4).setText(0, "New Item")
+        self.treeWidget.topLevelItem(0).child(
+            0).child(0).setText(0, "New Subitem")
+        self.treeWidget.topLevelItem(0).child(
+            0).child(1).setText(0, "New Item")
+        self.treeWidget.topLevelItem(0).child(
+            0).child(2).setText(0, "New Item")
+        self.treeWidget.topLevelItem(0).child(
+            0).child(3).setText(0, "New Item")
+        self.treeWidget.topLevelItem(0).child(
+            0).child(4).setText(0, "New Item")
         self.treeWidget.topLevelItem(1).setText(0, "New Item")
         self.treeWidget.topLevelItem(2).setText(0, "New Item")
         self.treeWidget.topLevelItem(2).child(0).setText(0, "New Subitem")
-        self.treeWidget.topLevelItem(2).child(0).child(0).setText(0, "New Subitem")
-        self.treeWidget.topLevelItem(2).child(0).child(0).child(0).setText(0, "New Subitem")
-        self.treeWidget.topLevelItem(2).child(0).child(0).child(0).child(0).setText(0, "New Subitem")
+        self.treeWidget.topLevelItem(2).child(
+            0).child(0).setText(0, "New Subitem")
+        self.treeWidget.topLevelItem(2).child(0).child(
+            0).child(0).setText(0, "New Subitem")
+        self.treeWidget.topLevelItem(2).child(0).child(
+            0).child(0).child(0).setText(0, "New Subitem")
         self.treeWidget.topLevelItem(2).child(1).setText(0, "New Item")
         self.treeWidget.topLevelItem(2).child(2).setText(0, "New Item")
         self.treeWidget.topLevelItem(2).child(3).setText(0, "New Item")
@@ -250,10 +257,13 @@ class Example(QtWidgets.QMainWindow):
         self.listWidget.setSortingEnabled(False)
         item = self.listWidget.item(0)
         item.setText("New Item")
+        item.setCheckState(Qt.Unchecked)
         item = self.listWidget.item(1)
         item.setText("New Item")
+        item.setCheckState(Qt.Checked)
         item = self.listWidget.item(2)
         item.setText("New Item")
+        item.setCheckState(Qt.PartiallyChecked)
         item = self.listWidget.item(3)
         item.setText("New Item")
         self.listWidget.setSortingEnabled(__sortingEnabled)
@@ -350,7 +360,8 @@ class Example(QtWidgets.QMainWindow):
         self.treeWidgetDis.topLevelItem(0).setText(0, "New Item")
         self.treeWidgetDis.topLevelItem(0).child(0).setText(0, "New Subitem")
         self.treeWidgetDis.topLevelItem(0).child(0).setText(1, "Test")
-        self.treeWidgetDis.topLevelItem(0).child(0).child(0).setText(0, "New Subitem")
+        self.treeWidgetDis.topLevelItem(0).child(
+            0).child(0).setText(0, "New Subitem")
         self.treeWidgetDis.topLevelItem(1).setText(0, "New Item")
         self.treeWidgetDis.topLevelItem(1).child(0).setText(0, "New Subitem")
         self.treeWidgetDis.setSortingEnabled(__sortingEnabled)

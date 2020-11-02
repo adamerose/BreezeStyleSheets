@@ -1,22 +1,24 @@
-
-
 // ========================================================================== //
-// QWidget
+// QWidget (FINISHED)
 
 
 QWidget {
     background-color: $BACKGROUND_DARK;
-    border: 0px solid $BACKGROUND_NORMAL;
-    padding: 0px;
+    border-color: $BACKGROUND_LIGHT;
     color: $FOREGROUND_LIGHT;
+
+    // Affects QLineEdit, QListView, QTableView, QTextEdit, QTreeView, and anything with highlighted text
     selection-background-color: $SELECTION_NORMAL;
     selection-color: $FOREGROUND_LIGHT;
 
     &:disabled {
-        background-color: $BACKGROUND_DARK;
         color: $FOREGROUND_DARK;
         selection-background-color: $SELECTION_DARK;
         selection-color: $FOREGROUND_DARK;
+    }
+
+    &:focus {
+        border: none;
     }
 
     &::item {
@@ -27,103 +29,47 @@ QWidget {
 
         &:hover {
             background-color: $SELECTION_LIGHT;
-            color: $BACKGROUND_NORMAL;
         }
     }
 }
 
-// ========================================================================== //
-// QMainWindow
+QLineEdit,
+QListView {
 
-QMainWindow {
-
-    &::separator {
-        background-color: $BACKGROUND_NORMAL;
-        border: 0px solid $BACKGROUND_DARK;
-        spacing: 0px;
-        padding: 2px;
-
-        &:hover {
-            background-color: $BACKGROUND_LIGHT;
-            border: 0px solid $SELECTION_LIGHT;
-        }
-
-        &:horizontal {
-            width: 5px;
-            margin-top: 2px;
-            margin-bottom: 2px;
-            image: url($PATH_RESOURCES + '/rc/toolbar_separator_vertical.png');
-        }
-
-        &:vertical {
-            height: 5px;
-            margin-left: 2px;
-            margin-right: 2px;
-            image: url($PATH_RESOURCES + '/rc/toolbar_separator_horizontal.png');
-        }
-    }
 }
 
 // ========================================================================== //
-// QToolTip
+// QToolTip (FINISHED)
 
 QToolTip {
-    background-color: $SELECTION_LIGHT;
+    background-color: $BACKGROUND_LIGHT;
     border: 1px solid $BACKGROUND_DARK;
-    color: $BACKGROUND_DARK;
-
-    /* Remove padding, for fix combo box tooltip */
-    padding: 0px;
-
-    /* Remove opacity, fix #174 - may need to use RGBA */
+    color: $FOREGROUND_LIGHT;
 }
 
 // ========================================================================== //
-// QStatusBar
+// QStatusBar (FINISHED)
 
 QStatusBar {
-    border: 1px solid $BACKGROUND_NORMAL;
-
-    /* Fixes Spyder #9120, #9121 */
     background: $BACKGROUND_NORMAL;
 
-    /* Fixes #205, white vertical borders separating items */
+    QWidget {
+        background: transparent;
+    }
+
+    /* Removes white vertical borders separating items */
     &::item {
         border: none;
     }
-
-    QToolTip {
-        background-color: $SELECTION_LIGHT;
-        border: 1px solid $BACKGROUND_DARK;
-        color: $BACKGROUND_DARK;
-
-        /* Remove padding, for fix combo box tooltip */
-        padding: 0px;
-
-        /* Reducing transparency to read better */
-        opacity: $OPACITY_TOOLTIP;
-    }
-
-    QLabel {
-        /* Fixes Spyder #9120, #9121 */
-        background: transparent;
-    }
 }
 
 // ========================================================================== //
-// QCheckBox
+// QCheckBox (FINISHED)
 
 QCheckBox {
     background-color: $BACKGROUND_DARK;
     color: $FOREGROUND_LIGHT;
     spacing: 4px;
-    outline: none;
-    padding-top: 4px;
-    padding-bottom: 4px;
-
-    &:focus {
-        border: none;
-    }
 
     QWidget:disabled {
         background-color: $BACKGROUND_DARK;
@@ -134,111 +80,16 @@ QCheckBox {
         margin-left: 4px;
         height: 16px;
         width: 16px;
-
-        &:unchecked {
-            image: url($PATH_RESOURCES + '/rc/checkbox_unchecked.png');
-
-            &:hover,
-            &:focus,
-            &:pressed {
-                border: none;
-                image: url($PATH_RESOURCES + '/rc/checkbox_unchecked_focus.png');
-            }
-
-            &:disabled {
-                image: url($PATH_RESOURCES + '/rc/checkbox_unchecked_disabled.png');
-            }
-        }
-
-        &:checked {
-            image: url($PATH_RESOURCES + '/rc/checkbox_checked.png');
-
-            &:hover,
-            &:focus,
-            &:pressed {
-                border: none;
-                image: url($PATH_RESOURCES + '/rc/checkbox_checked_focus.png');
-            }
-
-            &:disabled {
-                image: url($PATH_RESOURCES + '/rc/checkbox_checked_disabled.png');
-            }
-        }
-
-        &:indeterminate {
-            image: url($PATH_RESOURCES + '/rc/checkbox_indeterminate.png');
-
-            &:disabled {
-                image: url($PATH_RESOURCES + '/rc/checkbox_indeterminate_disabled.png');
-            }
-
-            &:focus,
-            &:hover,
-            &:pressed {
-                image: url($PATH_RESOURCES + '/rc/checkbox_indeterminate_focus.png');
-            }
-        }
     }
 }
 
 // ========================================================================== //
-// QGroupBox
+// QGroupBox (FINISHED)
 
 QGroupBox {
-    font-weight: bold;
+    padding-top: 14px;
     border: 1px solid $BACKGROUND_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
-    padding: 4px;
-    margin-top: 16px;
-
-    &::title {
-        subcontrol-origin: margin;
-        subcontrol-position: top left;
-        left: 3px;
-        padding-left: 3px;
-        padding-right: 5px;
-        padding-top: 8px;
-        padding-bottom: 16px;
-    }
-
-    &::indicator {
-        margin-left: 2px;
-        height: 16px;
-        width: 16px;
-
-        &:unchecked {
-            border: none;
-            image: url($PATH_RESOURCES + '/rc/checkbox_unchecked.png');
-
-            &:hover,
-            &:focus,
-            &:pressed {
-                border: none;
-                image: url($PATH_RESOURCES + '/rc/checkbox_unchecked_focus.png');
-            }
-
-            &:disabled {
-                image: url($PATH_RESOURCES + '/rc/checkbox_unchecked_disabled.png');
-            }
-        }
-
-        &:checked {
-            border: none;
-            image: url($PATH_RESOURCES + '/rc/checkbox_checked.png');
-
-
-            &:hover,
-            &:focus,
-            &:pressed {
-                border: none;
-                image: url($PATH_RESOURCES + '/rc/checkbox_checked_focus.png');
-            }
-
-            &:disabled {
-                image: url($PATH_RESOURCES + '/rc/checkbox_checked_disabled.png');
-            }
-        }
-    }
 }
 
 // ========================================================================== //
@@ -251,10 +102,6 @@ QRadioButton {
     padding: 0px;
     border: none;
     outline: none;
-
-    &:focus {
-        border: none;
-    }
 
     &:disabled {
         background-color: $BACKGROUND_DARK;
@@ -278,41 +125,6 @@ QRadioButton {
         margin-left: 4px;
         height: 16px;
         width: 16px;
-
-        &:unchecked {
-            image: url($PATH_RESOURCES + '/rc/radio_unchecked.png');
-
-            &:hover,
-            &:focus,
-            &:pressed {
-                border: none;
-                outline: none;
-                image: url($PATH_RESOURCES + '/rc/radio_unchecked_focus.png');
-            }
-
-            &:disabled {
-                image: url($PATH_RESOURCES + '/rc/radio_unchecked_disabled.png');
-            }
-        }
-
-        &:checked {
-            border: none;
-            outline: none;
-            image: url($PATH_RESOURCES + '/rc/radio_checked.png');
-
-            &:hover,
-            &:focus,
-            &:pressed {
-                border: none;
-                outline: none;
-                image: url($PATH_RESOURCES + '/rc/radio_checked_focus.png');
-            }
-
-            &:disabled {
-                outline: none;
-                image: url($PATH_RESOURCES + '/rc/radio_checked_disabled.png');
-            }
-        }
     }
 }
 
@@ -325,38 +137,20 @@ QMenuBar {
     border: 1px solid $BACKGROUND_DARK;
     color: $FOREGROUND_LIGHT;
 
-    &:focus {
-        border: 1px solid $SELECTION_LIGHT;
-    }
-
     &::item {
-        background: transparent;
         padding: 4px;
 
-        &:selected {
-            padding: 4px;
-            background: transparent;
-            border: 0px solid $BACKGROUND_NORMAL;
-        }
-
         &:pressed {
-            padding: 4px;
-            border: 0px solid $BACKGROUND_NORMAL;
             background-color: $SELECTION_LIGHT;
-            color: $FOREGROUND_LIGHT;
-            margin-bottom: 0px;
-            padding-bottom: 0px;
         }
     }
 }
 
 // ========================================================================== //
-// QMenu
+// QMenu (FINISHED)
 
 QMenu {
-    border: 0px solid $BACKGROUND_NORMAL;
     color: $FOREGROUND_LIGHT;
-    margin: 0px;
 
     &::separator {
         height: 1px;
@@ -371,59 +165,7 @@ QMenu {
 
     &::item {
         background-color: $BACKGROUND_NORMAL;
-        padding: 4px 24px 4px 24px;
-        /* Reserve space for selection border */
-        border: 1px transparent $BACKGROUND_NORMAL;
-
-        &:selected {
-            color: $FOREGROUND_LIGHT;
-        }
-    }
-
-    &::indicator {
-        width: 12px;
-        height: 12px;
-        padding-left: 6px;
-
-        /* non-exclusive indicator = check box style indicator (see QActionGroup::setExclusive) */
-        &:non-exclusive {
-
-            &:unchecked {
-                image: url($PATH_RESOURCES + '/rc/checkbox_unchecked.png');
-
-                &:selected {
-                    image: url($PATH_RESOURCES + '/rc/checkbox_unchecked_disabled.png');
-                }
-            }
-
-            &:checked {
-                image: url($PATH_RESOURCES + '/rc/checkbox_checked.png');
-
-                &:selected {
-                    image: url($PATH_RESOURCES + '/rc/checkbox_checked_disabled.png');
-                }
-            }
-        }
-
-        /* exclusive indicator = radio button style indicator (see QActionGroup::setExclusive) */
-        &:exclusive {
-
-            &:unchecked {
-                image: url($PATH_RESOURCES + '/rc/radio_unchecked.png');
-
-                &:selected {
-                    image: url($PATH_RESOURCES + '/rc/radio_unchecked_disabled.png');
-                }
-            }
-
-            &:checked {
-                image: url($PATH_RESOURCES + '/rc/radio_checked.png');
-
-                &:selected {
-                    image: url($PATH_RESOURCES + '/rc/radio_checked_disabled.png');
-                }
-            }
-        }
+        padding: 4px 24px;
     }
 
     &::right-arrow {
@@ -432,7 +174,16 @@ QMenu {
         height: 12px;
         width: 12px;
     }
+    
+    &::indicator {
+        width: 12px;
+        height: 12px;
+        margin-left: 6px;
+        // width + margin-left
+        margin-right: -18px;
+    }
 }
+
 
 // ========================================================================== //
 // QAbstractItemView
@@ -505,9 +256,6 @@ QScrollBar {
 
             &:hover {
                 background-color: $SELECTION_LIGHT;
-                border: 1px solid $SELECTION_LIGHT;
-                border-radius: $SIZE_BORDER_RADIUS;
-                min-width: 8px;
             }
 
             &:focus {
@@ -523,9 +271,6 @@ QScrollBar {
 
             &:hover {
                 background-color: $SELECTION_LIGHT;
-                border: 1px solid $SELECTION_LIGHT;
-                border-radius: $SIZE_BORDER_RADIUS;
-                min-height: 8px;
             }
 
             &:focus {
@@ -641,11 +386,6 @@ QTextEdit {
     border-radius: $SIZE_BORDER_RADIUS;
     border: 1px solid $BACKGROUND_NORMAL;
 
-    &:hover {
-        border: 1px solid $SELECTION_LIGHT;
-        color: $FOREGROUND_LIGHT;
-    }
-
     &:focus {
         border: 1px solid $SELECTION_NORMAL;
     }
@@ -665,11 +405,6 @@ QPlainTextEdit {
     color: $FOREGROUND_LIGHT;
     border-radius: $SIZE_BORDER_RADIUS;
     border: 1px solid $BACKGROUND_NORMAL;
-
-    &:hover {
-        border: 1px solid $SELECTION_LIGHT;
-        color: $FOREGROUND_LIGHT;
-    }
 
     &:focus {
         border: 1px solid $SELECTION_NORMAL;
@@ -715,17 +450,9 @@ QToolBar {
         background-color: $BACKGROUND_NORMAL;
         border: 1px solid $BACKGROUND_NORMAL;
 
-        &:hover {
-            border: 1px solid $SELECTION_LIGHT;
-        }
-
         &:checked {
             border: 1px solid $BACKGROUND_DARK;
             background-color: $BACKGROUND_DARK;
-
-            &:hover {
-                border: 1px solid $SELECTION_LIGHT;
-            }
         }
     }
 
@@ -832,11 +559,6 @@ QAbstractSpinBox {
         image: url($PATH_RESOURCES + '/rc/arrow_down.png');
     }
 
-    &:hover {
-        border: 1px solid $SELECTION_LIGHT;
-        color: $FOREGROUND_LIGHT;
-    }
-
     &:focus {
         border: 1px solid $SELECTION_NORMAL;
     }
@@ -855,15 +577,10 @@ QAbstractSpinBox {
 // QLabel
 
 QLabel {
-    background-color: $BACKGROUND_DARK;
-    border: 0px solid $BACKGROUND_NORMAL;
-    padding: 2px;
-    margin: 0px;
+
     color: $FOREGROUND_LIGHT;
 
     &:disabled {
-        background-color: $BACKGROUND_DARK;
-        border: 0px solid $BACKGROUND_NORMAL;
         color: $FOREGROUND_DARK;
     }
 }
@@ -1033,25 +750,11 @@ QPushButton {
     &:pressed {
         background-color: $BACKGROUND_DARK;
         border: 1px solid $BACKGROUND_DARK;
-
-        &:hover {
-            border: 1px solid $SELECTION_LIGHT;
-        }
-    }
-
-    &:hover {
-        border: 1px solid $SELECTION_LIGHT;
-        color: $FOREGROUND_LIGHT;
     }
 
     &:selected {
         background: $SELECTION_NORMAL;
         color: $BACKGROUND_NORMAL;
-    }
-
-    &:hover {
-        border: 1px solid $SELECTION_LIGHT;
-        color: $FOREGROUND_LIGHT;
     }
 
     &:focus {
@@ -1089,10 +792,6 @@ QToolButton {
         border: none;
     }
 
-    &:hover {
-        border: 1px solid $SELECTION_LIGHT;
-    }
-
     /* The subcontrols below are used only in the DelayedPopup mode */
     &[popupMode="0"] {
         /* Only for DelayedPopup */
@@ -1128,15 +827,6 @@ QToolButton {
         width: 12px;
         outline: none;
 
-        &:hover {
-            border: 1px solid $SELECTION_LIGHT;
-        }
-
-        &:checked {
-            &:hover {
-                border: 1px solid $SELECTION_LIGHT;
-            }
-        }
     }
 
     &::menu-indicator {
@@ -1227,10 +917,6 @@ QComboBox {
         color: $FOREGROUND_DARK;
     }
 
-    &:hover {
-        border: 1px solid $SELECTION_LIGHT;
-    }
-
     &:focus {
         border: 1px solid $SELECTION_NORMAL;
     }
@@ -1298,10 +984,6 @@ QSlider {
         background: $BACKGROUND_DARK;
     }
 
-    &:focus {
-        border: none;
-    }
-
     &::groove {
         &:horizontal {
             background: $BACKGROUND_NORMAL;
@@ -1349,7 +1031,7 @@ QSlider {
             }
         }
     }
-
+    
     &::handle {
 
         &:horizontal {
@@ -1362,7 +1044,6 @@ QSlider {
 
             &:hover {
                 background: $SELECTION_LIGHT;
-                border: 1px solid $SELECTION_LIGHT;
             }
 
             &:focus {
@@ -1380,7 +1061,6 @@ QSlider {
 
             &:hover {
                 background: $SELECTION_LIGHT;
-                border: 1px solid $SELECTION_LIGHT;
             }
 
             &:focus {
@@ -1391,7 +1071,7 @@ QSlider {
 }
 
 // ========================================================================== //
-// QLineEdit
+// QLineEdit (FINISHED)
 
 QLineEdit {
     background-color: $BACKGROUND_DARK;
@@ -1411,11 +1091,6 @@ QLineEdit {
         color: $FOREGROUND_DARK;
     }
 
-    &:hover {
-        border: 1px solid $SELECTION_LIGHT;
-        color: $FOREGROUND_LIGHT;
-    }
-
     &:focus {
         border: 1px solid $SELECTION_NORMAL;
     }
@@ -1427,42 +1102,28 @@ QLineEdit {
 }
 
 // ========================================================================== //
-// QTabWiget
+// QTabWiget (FINISHED)
 
 QTabWidget {
-    padding: 2px;
-    selection-background-color: $BACKGROUND_NORMAL;
-
-    QWidget {
-        /* Fixes #189 */
-        border-radius: $SIZE_BORDER_RADIUS;
-    }
+    margin: 15px;
 
     &::pane {
         border: 1px solid $BACKGROUND_NORMAL;
-        border-radius: $SIZE_BORDER_RADIUS;
-        margin: 0px;
-        /* Fixes double border inside pane with pyqt5 */
-        padding: 0px;
 
-        &:selected {
-            background-color: $BACKGROUND_NORMAL;
-            border: 1px solid $SELECTION_NORMAL;
-        }
+        // https://stackoverflow.com/a/10047229/3620725
+        &:top { top: -1px; }
+        &:bottom { bottom: -1px; }
+        &:left { left: -1px; }
+        &:right { right: -1px; }
     }
 }
 
 // ========================================================================== //
-// QTabBar
+// QTabBar (FINISHED)
 
 QTabBar {
-    qproperty-drawBase: 0;
     border-radius: $SIZE_BORDER_RADIUS;
-    margin: 0px;
-    padding: 2px;
-    border: 0;
-    /* left: 5px; move to the right by 5px - removed for fix */
-
+    
     &::close-button {
         border: 0;
         margin: 2px;
@@ -1478,212 +1139,70 @@ QTabBar {
             image: url($PATH_RESOURCES + '/rc/window_close_pressed.png');
         }
     }
-}
-
-// ========================================================================== //
-// QTabBar
-
-QTabBar {
 
     &::tab {
 
-        &:top:selected:disabled {
-            border-bottom: 3px solid $SELECTION_DARK;
-            color: $FOREGROUND_DARK;
-            background-color: $BACKGROUND_NORMAL;
+        border: 1px solid;
+        border-radius: $SIZE_BORDER_RADIUS;
+
+        &:top,
+        &:bottom {
+            padding: 4px 14px;
         }
 
-        &:bottom:selected:disabled {
-            border-top: 3px solid $SELECTION_DARK;
-            color: $FOREGROUND_DARK;
-            background-color: $BACKGROUND_NORMAL;
-        }
-
-        &:left:selected:disabled {
-            border-right: 3px solid $SELECTION_DARK;
-            color: $FOREGROUND_DARK;
-            background-color: $BACKGROUND_NORMAL;
-        }
-
-        &:right:selected:disabled {
-            border-left: 3px solid $SELECTION_DARK;
-            color: $FOREGROUND_DARK;
-            background-color: $BACKGROUND_NORMAL;
-        }
-
-        /* !selected and disabled ----------------------------------------- */
-        &:top:!selected:disabled {
-            border-bottom: 3px solid $BACKGROUND_DARK;
-            color: $FOREGROUND_DARK;
-            background-color: $BACKGROUND_DARK;
-        }
-
-        &:bottom:!selected:disabled {
-            border-top: 3px solid $BACKGROUND_DARK;
-            color: $FOREGROUND_DARK;
-            background-color: $BACKGROUND_DARK;
-        }
-
-        &:left:!selected:disabled {
-            border-right: 3px solid $BACKGROUND_DARK;
-            color: $FOREGROUND_DARK;
-            background-color: $BACKGROUND_DARK;
-        }
-
-        &:right:!selected:disabled {
-            border-left: 3px solid $BACKGROUND_DARK;
-            color: $FOREGROUND_DARK;
-            background-color: $BACKGROUND_DARK;
-        }
-
-        /* selected ------------------------------------------------------- */
-        &:top:!selected {
-            border-bottom: 2px solid $BACKGROUND_DARK;
-            margin-top: 2px;
-        }
-
-        &:bottom:!selected {
-            border-top: 2px solid $BACKGROUND_DARK;
-            margin-bottom: 3px;
-        }
-
-        &:left:!selected {
-            border-left: 2px solid $BACKGROUND_DARK;
-            margin-right: 2px;
-        }
-
-        &:right:!selected {
-            border-right: 2px solid $BACKGROUND_DARK;
-            margin-left: 2px;
+        &:left,
+        &:right {
+            padding: 14px 4px;
         }
 
         &:top {
-            background-color: $BACKGROUND_NORMAL;
-            color: $FOREGROUND_LIGHT;
-            margin-left: 2px;
-            padding-left: 4px;
-            padding-right: 4px;
-            padding-top: 2px;
-            padding-bottom: 2px;
-            min-width: 5px;
-            border-bottom: 3px solid $BACKGROUND_NORMAL;
-            border-top-left-radius: 3px;
-            border-top-right-radius: 3px;
-
-            &:selected {
-                background-color: $BACKGROUND_LIGHT;
-                color: $FOREGROUND_LIGHT;
-                border-bottom: 3px solid $SELECTION_NORMAL;
-                border-top-left-radius: 3px;
-                border-top-right-radius: 3px;
-            }
-
-            &:!selected:hover {
-                border: 1px solid $SELECTION_LIGHT;
-                border-bottom: 3px solid $SELECTION_LIGHT;
-
-                /* Fixes spyder-ide/spyder#9766 */
-                padding-left: 4px;
-                padding-right: 4px;
-            }
+            border-bottom-width: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
         }
-
         &:bottom {
-            color: $FOREGROUND_LIGHT;
-            border-top: 3px solid $BACKGROUND_NORMAL;
-            background-color: $BACKGROUND_NORMAL;
-            margin-left: 2px;
-            padding-left: 4px;
-            padding-right: 4px;
-            padding-top: 2px;
-            padding-bottom: 2px;
-            border-bottom-left-radius: 3px;
-            border-bottom-right-radius: 3px;
-            min-width: 5px;
-
-            &:selected {
-                color: $FOREGROUND_LIGHT;
-                background-color: $BACKGROUND_LIGHT;
-                border-top: 3px solid $SELECTION_NORMAL;
-                border-bottom-left-radius: 3px;
-                border-bottom-right-radius: 3px;
-            }
-
-            &:!selected:hover {
-                border: 1px solid $SELECTION_LIGHT;
-                border-top: 3px solid $SELECTION_LIGHT;
-
-                /* Fixes spyder-ide/spyder#9766 */
-                padding-left: 4px;
-                padding-right: 4px;
-            }
-
+            border-top-width: 0px;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
         }
-
         &:left {
-            color: $FOREGROUND_LIGHT;
-            background-color: $BACKGROUND_NORMAL;
-            margin-top: 2px;
-            padding-left: 2px;
-            padding-right: 2px;
-            padding-top: 4px;
-            padding-bottom: 4px;
-            border-top-left-radius: 3px;
-            border-bottom-left-radius: 3px;
-            min-height: 5px;
-
-            &:selected {
-                color: $FOREGROUND_LIGHT;
-                background-color: $BACKGROUND_LIGHT;
-                border-right: 3px solid $SELECTION_NORMAL;
-            }
-
-            &:!selected:hover {
-                border: 1px solid $SELECTION_LIGHT;
-                border-right: 3px solid $SELECTION_LIGHT;
-                padding: 0px;
-            }
+            border-right-width: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
         }
-
         &:right {
-            color: $FOREGROUND_LIGHT;
-            background-color: $BACKGROUND_NORMAL;
-            margin-top: 2px;
-            padding-left: 2px;
-            padding-right: 2px;
-            padding-top: 4px;
-            padding-bottom: 4px;
-            border-top-right-radius: 3px;
-            border-bottom-right-radius: 3px;
-            min-height: 5px;
-
-            &:selected {
-                color: $FOREGROUND_LIGHT;
-                background-color: $BACKGROUND_LIGHT;
-                border-left: 3px solid $SELECTION_NORMAL;
-
-            }
-
-            &:!selected:hover {
-                border: 1px solid $SELECTION_LIGHT;
-                border-left: 3px solid $SELECTION_LIGHT;
-                padding: 0px;
-            }
+            border-left-width: 0px;
+            border-bottom-left-radius: 0px;
+            border-top-left-radius: 0px;
         }
-    }
+        
+        &:!selected {
+            background-color: $BACKGROUND_NORMAL;
+            color: $FOREGROUND_MEDIUM_LIGHT;
+            border-color: $BACKGROUND_DARK;
 
+        }
+
+        &:selected {
+            background-color: $BACKGROUND_DARK;
+            color: $FOREGROUND_LIGHT;
+            border-color: $BACKGROUND_NORMAL;
+            
+        }
+
+        &:disabled {
+            color: $FOREGROUND_DARK;
+        }
+
+    }
+    
     QToolButton {
-        /* Fixes #136 */
         background-color: $BACKGROUND_NORMAL;
         height: 12px;
         width: 12px;
 
         &:pressed {
             background-color: $BACKGROUND_NORMAL;
-
-            &:hover {
-                border: 1px solid $SELECTION_LIGHT;
-            }
         }
 
         &::left-arrow {
@@ -1720,18 +1239,16 @@ QDockWidget {
     titlebar-close-icon: url($PATH_RESOURCES + '/rc/window_close.png');
     titlebar-normal-icon: url($PATH_RESOURCES + '/rc/window_undock.png');
 
-
-
     &::title {
         /* Better size for title bar */
         padding: 6px;
         spacing: 4px;
-        border: none;
-        background-color: $BACKGROUND_NORMAL;
+        border: 1px solid $BACKGROUND_NORMAL;
+        background-color: $BACKGROUND_DARK;
     }
 
     &::close-button {
-        background-color: $BACKGROUND_NORMAL;
+        background-color: $BACKGROUND_DARK;
         border-radius: $SIZE_BORDER_RADIUS;
         border: none;
 
@@ -1745,7 +1262,7 @@ QDockWidget {
     }
 
     &::float-button {
-        background-color: $BACKGROUND_NORMAL;
+        background-color: $BACKGROUND_DARK;
         border-radius: $SIZE_BORDER_RADIUS;
         border: none;
 
@@ -1760,7 +1277,7 @@ QDockWidget {
 }
 
 // ========================================================================== //
-// QTreeView
+// QTreeView (FINISHED)
 
 QTreeView {
 
@@ -1808,43 +1325,6 @@ QTreeView {
 }
 
 QTreeView,
-QListView {
-
-    &::indicator {
-
-        &:checked {
-            image: url($PATH_RESOURCES + '/rc/checkbox_checked.png');
-
-            &:hover,
-            &:focus,
-            &:pressed {
-                image: url($PATH_RESOURCES + '/rc/checkbox_checked_focus.png');
-            }
-        }
-
-        &:unchecked {
-            image: url($PATH_RESOURCES + '/rc/checkbox_unchecked.png');
-
-            &:hover,
-            &:focus,
-            &:pressed {
-                image: url($PATH_RESOURCES + '/rc/checkbox_unchecked_focus.png');
-            }
-        }
-
-        &:indeterminate {
-            image: url($PATH_RESOURCES + '/rc/checkbox_indeterminate.png');
-
-            &:hover,
-            &:focus,
-            &:pressed {
-                image: url($PATH_RESOURCES + '/rc/checkbox_indeterminate_focus.png');
-            }
-        }
-    }
-}
-
-QTreeView,
 QListView,
 QTableView,
 QColumnView {
@@ -1862,11 +1342,6 @@ QColumnView {
     &:selected {
         background-color: $SELECTION_NORMAL;
         color: $BACKGROUND_NORMAL;
-    }
-
-    &:hover {
-        background-color: $BACKGROUND_DARK;
-        border: 1px solid $SELECTION_LIGHT;
     }
 
     &::item {
@@ -2167,28 +1642,117 @@ QDateEdit, QDateTimeEdit {
 
 
 // ========================================================================== //
-// QAbstractView
-
-
-QAbstractView {
+// Blue highlight on hover
+QTreeView,
+QListView,
+QTableView,
+QColumnView,
+QToolButton,
+QLineEdit,
+QComboBox,
+QToolButton,
+QToolButton::menu-button,
+QPushButton,
+QAbstractSpinBox,
+QPlainTextEdit,
+QTextEdit,
+QActionButton {
 
     &:hover {
         border: 1px solid $SELECTION_LIGHT;
-        color: $FOREGROUND_LIGHT;
-    }
-
-    &:selected {
-        background: $SELECTION_NORMAL;
-        color: $BACKGROUND_NORMAL;
     }
 }
-
 
 // ========================================================================== //
-// PlotWidget
+// Checkboxes (FINISHED)
 
+QAbstractItemView::indicator,
+QCheckBox::indicator, 
+QGroupBox::indicator,
+QMenu::indicator:non-exclusive {    
+    width: 12px;
+    height: 12px;
 
-PlotWidget {
-    /* Fix cut labels in plots #134 */
-    padding: 0px;
+    &:unchecked {
+        image: url($PATH_RESOURCES + '/rc/checkbox_unchecked.png');
+
+        &:hover,
+        &:focus,
+        &:pressed {
+            image: url($PATH_RESOURCES + '/rc/checkbox_unchecked_focus.png');
+        }
+
+        &:disabled {
+            image: url($PATH_RESOURCES + '/rc/checkbox_unchecked_disabled.png');
+        }
+    }
+
+    &:checked {
+        image: url($PATH_RESOURCES + '/rc/checkbox_checked.png');
+
+        &:hover,
+        &:focus,
+        &:pressed {
+            image: url($PATH_RESOURCES + '/rc/checkbox_checked_focus.png');
+        }
+
+        &:disabled {
+            image: url($PATH_RESOURCES + '/rc/checkbox_checked_disabled.png');
+        }
+    }
+
+    &:indeterminate {
+        image: url($PATH_RESOURCES + '/rc/checkbox_indeterminate.png');
+
+        &:disabled {
+            image: url($PATH_RESOURCES + '/rc/checkbox_indeterminate_disabled.png');
+        }
+
+        &:focus,
+        &:hover,
+        &:pressed {
+            image: url($PATH_RESOURCES + '/rc/checkbox_indeterminate_focus.png');
+        }
+        
+    }
 }
+
+QRadioButton::indicator,
+QMenu::indicator:exclusive {
+    width: 12px;
+    height: 12px;
+
+    &:unchecked {
+        image: url($PATH_RESOURCES + '/rc/radio_unchecked.png');
+
+        &:hover,
+        &:focus,
+        &:pressed {
+            border: none;
+            outline: none;
+            image: url($PATH_RESOURCES + '/rc/radio_unchecked_focus.png');
+        }
+
+        &:disabled {
+            image: url($PATH_RESOURCES + '/rc/radio_unchecked_disabled.png');
+        }
+    }
+
+    &:checked {
+        image: url($PATH_RESOURCES + '/rc/radio_checked.png');
+
+        &:hover,
+        &:focus,
+        &:pressed {
+            border: none;
+            outline: none;
+            image: url($PATH_RESOURCES + '/rc/radio_checked_focus.png');
+        }
+        
+        &:disabled {
+            image: url($PATH_RESOURCES + '/rc/radio_checked_disabled.png');
+        }
+    }
+    
+}
+

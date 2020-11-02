@@ -11,9 +11,12 @@ class Example(QtWidgets.QMainWindow):
         self.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(self)
         self.statusbar.setEnabled(True)
-        self.statusbar.setToolTip("")
+        self.statusbar.setToolTip("Status bar tooltip")
         self.statusbar.setObjectName("statusbar")
         self.setStatusBar(self.statusbar)
+        self.statusbar.showMessage("Temporary message (60s)", 60000)
+        self.statusbar.addPermanentWidget(
+            QtWidgets.QLabel("Permanent statusbar label"))
         self.menubar = QtWidgets.QMenuBar(self)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 611, 26))
         self.menubar.setObjectName("menubar")
@@ -48,10 +51,12 @@ class Example(QtWidgets.QMainWindow):
         self.actionActionCheckableSubAChecked = QtWidgets.QAction(self)
         self.actionActionCheckableSubAChecked.setCheckable(True)
         self.actionActionCheckableSubAChecked.setChecked(True)
-        self.actionActionCheckableSubAChecked.setObjectName("actionActionCheckableSubAChecked")
+        self.actionActionCheckableSubAChecked.setObjectName(
+            "actionActionCheckableSubAChecked")
         self.actionActionCheckableSubAUnchecked = QtWidgets.QAction(self)
         self.actionActionCheckableSubAUnchecked.setCheckable(True)
-        self.actionActionCheckableSubAUnchecked.setObjectName("actionActionCheckableSubAUnchecked")
+        self.actionActionCheckableSubAUnchecked.setObjectName(
+            "actionActionCheckableSubAUnchecked")
         self.actionNewB = QtWidgets.QAction(self)
         self.actionNewB.setObjectName("actionNewB")
         self.actionNewC = QtWidgets.QAction(self)
@@ -73,7 +78,7 @@ class Example(QtWidgets.QMainWindow):
         self.action3 = QtWidgets.QAction(self)
         self.action3.setObjectName("action3")
         self.actionE = QtWidgets.QAction(self)
-        self.actionE.setCheckable(False)
+        self.actionE.setCheckable(True)
         self.actionE.setIconVisibleInMenu(True)
         self.actionE.setObjectName("actionE")
         self.actionF = QtWidgets.QAction(self)
@@ -88,7 +93,9 @@ class Example(QtWidgets.QMainWindow):
         self.menuMenu.addAction(self.actionA)
         self.menuMenu.addAction(self.actionB)
         self.menuMenu.addAction(self.actionC)
+        self.menuMenu.addSeparator()
         self.menuMenu.addAction(self.menuMenuSub.menuAction())
+        self.menuMenu.addSection("Advanced")
         self.menuMenu.addAction(self.actionD)
         self.menuMenu.addAction(self.actionE)
         self.menuMenu.addAction(self.actionF)
@@ -101,9 +108,6 @@ class Example(QtWidgets.QMainWindow):
         self.toolBar.addAction(self.actionB)
         self.toolBar.addAction(self.actionC)
         self.toolBar.addAction(self.actionE)
-
-
-
 
         self.menuMenu.setTitle("Menu")
         self.menuMenuSub.setTitle("Submenu")
@@ -120,10 +124,14 @@ class Example(QtWidgets.QMainWindow):
         self.actionActionDelayedSubA.setToolTip("Action Delayed Sub A")
         self.actionActionCheckableA.setText("Action Checkable A")
         self.actionActionCheckableA.setToolTip("Action Checkable A")
-        self.actionActionCheckableSubAChecked.setText("Action Checkable Sub A Checked")
-        self.actionActionCheckableSubAChecked.setToolTip("Action Checkable Sub A Checked")
-        self.actionActionCheckableSubAUnchecked.setText("Action Checkable Sub A Unchecked")
-        self.actionActionCheckableSubAUnchecked.setToolTip("Action Checkable Sub A Unchecked")
+        self.actionActionCheckableSubAChecked.setText(
+            "Action Checkable Sub A Checked")
+        self.actionActionCheckableSubAChecked.setToolTip(
+            "Action Checkable Sub A Checked")
+        self.actionActionCheckableSubAUnchecked.setText(
+            "Action Checkable Sub A Unchecked")
+        self.actionActionCheckableSubAUnchecked.setToolTip(
+            "Action Checkable Sub A Unchecked")
         self.actionNewB.setText("New B")
         self.actionNewC.setText("New C")
         self.actionNewD.setText("New D")
