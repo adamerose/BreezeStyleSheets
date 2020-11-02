@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>479</width>
+    <height>372</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QComboBox" name="comboBox">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>42</y>
+     <width>160</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>ComboBoxNotEditable</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Option 1 No Icon</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Option 2 No Icon</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Option 1 With Icon</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/qss_icons/rc/window_undock.png</normaloff>:/qss_icons/rc/window_undock.png</iconset>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Option 2 With Icon</string>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>:/qss_icons/rc/window_undock_focus@2x.png</normaloff>:/qss_icons/rc/window_undock_focus@2x.png</iconset>
+    </property>
+   </item>
+  </widget>
+  <widget class="QSlider" name="horizontalSlider">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>163</y>
+     <width>160</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QScrollBar" name="horizontalScrollBar">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>132</y>
+     <width>160</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_25">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>273</y>
+     <width>128</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="text">
+    <string>VerticalSlider</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_21">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>75</y>
+     <width>128</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="text">
+    <string>Dial</string>
+   </property>
+  </widget>
+  <widget class="QScrollBar" name="horizontalScrollBarDis">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>132</y>
+     <width>154</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QScrollBar" name="verticalScrollBarDis">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>192</y>
+     <width>21</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>19</y>
+     <width>154</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Disabled</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>42</y>
+     <width>128</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="text">
+    <string>ComboBox</string>
+   </property>
+  </widget>
+  <widget class="QScrollBar" name="verticalScrollBar">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>196</y>
+     <width>21</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QSlider" name="verticalSlider">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>273</y>
+     <width>22</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QSlider" name="verticalSliderDis">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>273</y>
+     <width>22</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>70</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QDial" name="dial">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>75</y>
+     <width>160</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>145</x>
+     <y>19</y>
+     <width>160</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Enabled</string>
+   </property>
+  </widget>
+  <widget class="QDial" name="dialDis">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>75</y>
+     <width>154</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBoxDis">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>44</y>
+     <width>154</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>ComboBoxNotEditable</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>ComboBox B</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>ComboBox C</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QSlider" name="horizontalSliderDis">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>160</y>
+     <width>154</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_23">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>196</y>
+     <width>128</width>
+     <height>70</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="text">
+    <string>VerticalScroolBar</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_22">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>132</y>
+     <width>128</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="text">
+    <string>HorizontalScroolBar</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_24">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>128</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>This is a tool tip</string>
+   </property>
+   <property name="statusTip">
+    <string>This is a status tip</string>
+   </property>
+   <property name="whatsThis">
+    <string>This is &quot;what is this&quot;</string>
+   </property>
+   <property name="text">
+    <string>HorizontalSlider</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

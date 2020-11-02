@@ -1,3 +1,5 @@
-- Took icons from https://github.com/ColinDuquesnoy/QDarkStyleSheet
-- Took CSS from https://github.com/Alexhuszagh/BreezeStyleSheets (and trimmed it down a lot)
-- Changed the CSS to SCSS
+- Took SCSS & icons from https://github.com/ColinDuquesnoy/QDarkStyleSheet
+- Use qtsass for compiling to QSS https://github.com/spyder-ide/qtsass
+- Took QSS from https://github.com/Alexhuszagh/BreezeStyleSheets
+- Simplified compile process
+- Took frameless window from https://github.com/gmarull/qtmodern

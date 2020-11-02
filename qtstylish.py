@@ -1,15 +1,27 @@
-
 import sys, os
-sys.path.append(os.path.dirname(__file__))
 
-with open("./styles/breeze/dark.qss") as f:
-    import styles.breeze.breeze_resources
-    dark = f.read()
+dirname = os.path.dirname(__file__)
 
-with open("./styles/style.qss") as f:
-    import styles.resources
-    mydark = f.read()
-    
-with open("./styles/breeze/light.qss") as f:
-    import styles.breeze.breeze_resources
-    light = f.read()
+
+def dark():
+    with open(os.path.join(dirname, "alternatives/breeze/dark.qss")) as f:
+        import alternatives.breeze.breeze_resources
+        return f.read()
+
+
+def mydark():
+    with open(os.path.join(dirname, "styling/compiled/style.qss")) as f:
+        import styling.compiled.resources
+        return f.read()
+
+
+def light():
+    with open(os.path.join(dirname, "alternatives/breeze/light.qss")) as f:
+        import alternatives.breeze.breeze_resources
+        return f.read()
+
+
+def qdarkstyle():
+    with open(os.path.join(dirname, "alternatives/qdarkstyle/style.qss")) as f:
+        import alternatives.qdarkstyle.style_rc
+        return f.read()

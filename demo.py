@@ -2,67 +2,68 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
 import os
+import qtstylish
 
 sys.path.insert(0, os.path.abspath(os.path.dirname(os.path.abspath(__file__)) + '/..'))
 
 from example.example import Example
 
-class Demo(QtWidgets.QWidget):
-    def __init__(self, parent=None):
-        super().__init__(parent)
 
-        import qtstylish
+class ThemeSwitcher(QtWidgets.QWidget):
+    def __init__(self, widget_to_style):
+        super().__init__()
 
-        example_ui = Example()
+        import importlib
 
         layout = QtWidgets.QVBoxLayout()
         btn_layout = QtWidgets.QHBoxLayout()
-        
-        import importlib
 
         btn = QtWidgets.QPushButton("Unstyled")
         btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                    importlib.reload(qtstylish),
-                                    print("Done"),
-                                     self.setStyleSheet("")])
+                                     importlib.reload(qtstylish),
+                                     print("Done"),
+                                     widget_to_style.setStyleSheet("")])
         btn_layout.addWidget(btn)
 
         btn = QtWidgets.QPushButton("Breeze Light")
         btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                    importlib.reload(qtstylish),
-                                    print("Done"),
-                                     self.setStyleSheet(qtstylish.light)])
+                                     importlib.reload(qtstylish),
+                                     print("Done"),
+                                     widget_to_style.setStyleSheet(qtstylish.light())])
         btn_layout.addWidget(btn)
 
         btn = QtWidgets.QPushButton("Breeze Dark")
         btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                    importlib.reload(qtstylish),
-                                    print("Done"),
-                                     self.setStyleSheet(qtstylish.dark)])
+                                     importlib.reload(qtstylish),
+                                     print("Done"),
+                                     widget_to_style.setStyleSheet(qtstylish.dark())])
         btn_layout.addWidget(btn)
 
         btn = QtWidgets.QPushButton("QtStylish Dark")
         btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                    importlib.reload(qtstylish),
-                                    print("Done"),
-                                     self.setStyleSheet(qtstylish.mydark)])
+                                     importlib.reload(qtstylish),
+                                     print("Done"),
+                                     widget_to_style.setStyleSheet(qtstylish.mydark())])
         btn_layout.addWidget(btn)
 
         btn = QtWidgets.QPushButton("QDarkStyle")
-        import qdarkstyle
         btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                    importlib.reload(qtstylish),
-                                    print("Done"),
-                                    self.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())])
+                                     importlib.reload(qtstylish),
+                                     print("Done"),
+                                     widget_to_style.setStyleSheet(qtstylish.qdarkstyle())])
         btn_layout.addWidget(btn)
 
         layout.addLayout(btn_layout)
-        layout.addWidget(example_ui)
+        layout.addWidget(widget_to_style)
         self.setLayout(layout)
         self.show()
 
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    demo = Demo()
+
+    example = Example()
+    switcher = ThemeSwitcher(example)
+
+    switcher.resize(1000, 1000)
     app.exec_()
