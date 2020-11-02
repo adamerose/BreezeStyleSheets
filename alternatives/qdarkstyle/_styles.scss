@@ -82,7 +82,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtooltip
 --------------------------------------------------------------------------- */
 QToolTip {
     background-color: $SELECTION_LIGHT;
-    border: 1px solid $BACKGROUND_DARK;
+    border: $BORDER_DARK;
     color: $BACKGROUND_DARK;
 
     /* Remove padding, for fix combo box tooltip */
@@ -97,7 +97,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qstatusbar
 
 --------------------------------------------------------------------------- */
 QStatusBar {
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
 
     /* Fixes Spyder #9120, #9121 */
     background: $BACKGROUND_NORMAL;
@@ -109,7 +109,7 @@ QStatusBar {
 
     QToolTip {
         background-color: $SELECTION_LIGHT;
-        border: 1px solid $BACKGROUND_DARK;
+        border: $BORDER_DARK;
         color: $BACKGROUND_DARK;
 
         /* Remove padding, for fix combo box tooltip */
@@ -205,7 +205,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qgroupbox
 --------------------------------------------------------------------------- */
 QGroupBox {
     font-weight: bold;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
     padding: 4px;
     margin-top: 16px;
@@ -345,11 +345,11 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenubar
 QMenuBar {
     background-color: $BACKGROUND_NORMAL;
     padding: 2px;
-    border: 1px solid $BACKGROUND_DARK;
+    border: $BORDER_DARK;
     color: $FOREGROUND_LIGHT;
 
     &:focus {
-        border: 1px solid $SELECTION_LIGHT;
+        border: $BORDER_SELECTION_LIGHT;
     }
 
     &::item {
@@ -467,7 +467,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcombobox
 QAbstractItemView {
     alternate-background-color: $BACKGROUND_DARK;
     color: $FOREGROUND_LIGHT;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
 
     QLineEdit {
@@ -482,7 +482,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qabstractscrollarea
 --------------------------------------------------------------------------- */
 QAbstractScrollArea {
     background-color: $BACKGROUND_DARK;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
     padding: 2px;
     /* fix #159 */
@@ -512,7 +512,7 @@ QScrollBar {
     &:horizontal {
         height: 16px;
         margin: 2px 16px 2px 16px;
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         border-radius: $SIZE_BORDER_RADIUS;
         background-color: $BACKGROUND_DARK;
     }
@@ -521,7 +521,7 @@ QScrollBar {
         background-color: $BACKGROUND_DARK;
         width: 16px;
         margin: 16px 2px 16px 2px;
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         border-radius: $SIZE_BORDER_RADIUS;
     }
 
@@ -529,37 +529,37 @@ QScrollBar {
 
         &:horizontal {
             background-color: $FOREGROUND_DARK;
-            border: 1px solid $BACKGROUND_NORMAL;
+            border: $BORDER_NORMAL;
             border-radius: $SIZE_BORDER_RADIUS;
             min-width: 8px;
 
             &:hover {
                 background-color: $SELECTION_LIGHT;
-                border: 1px solid $SELECTION_LIGHT;
+                border: $BORDER_SELECTION_LIGHT;
                 border-radius: $SIZE_BORDER_RADIUS;
                 min-width: 8px;
             }
 
             &:focus {
-                border: 1px solid $SELECTION_NORMAL;
+                border: $BORDER_SELECTION_NORMAL;
             }
         }
 
         &:vertical {
             background-color: $FOREGROUND_DARK;
-            border: 1px solid $BACKGROUND_NORMAL;
+            border: $BORDER_NORMAL;
             min-height: 8px;
             border-radius: $SIZE_BORDER_RADIUS;
 
             &:hover {
                 background-color: $SELECTION_LIGHT;
-                border: 1px solid $SELECTION_LIGHT;
+                border: $BORDER_SELECTION_LIGHT;
                 border-radius: $SIZE_BORDER_RADIUS;
                 min-height: 8px;
             }
 
             &:focus {
-                border: 1px solid $SELECTION_NORMAL;
+                border: $BORDER_SELECTION_NORMAL;
             }
         }
     }
@@ -671,15 +671,15 @@ QTextEdit {
     background-color: $BACKGROUND_DARK;
     color: $FOREGROUND_LIGHT;
     border-radius: $SIZE_BORDER_RADIUS;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
 
     &:hover {
-        border: 1px solid $SELECTION_LIGHT;
+        border: $BORDER_SELECTION_LIGHT;
         color: $FOREGROUND_LIGHT;
     }
 
     &:focus {
-        border: 1px solid $SELECTION_NORMAL;
+        border: $BORDER_SELECTION_NORMAL;
     }
 
     &:selected {
@@ -695,15 +695,15 @@ QPlainTextEdit {
     background-color: $BACKGROUND_DARK;
     color: $FOREGROUND_LIGHT;
     border-radius: $SIZE_BORDER_RADIUS;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
 
     &:hover {
-        border: 1px solid $SELECTION_LIGHT;
+        border: $BORDER_SELECTION_LIGHT;
         color: $FOREGROUND_LIGHT;
     }
 
     &:focus {
-        border: 1px solid $SELECTION_NORMAL;
+        border: $BORDER_SELECTION_NORMAL;
     }
 
     &:selected {
@@ -729,8 +729,8 @@ QSizeGrip {
 --------------------------------------------------------------------------- */
 QStackedWidget {
     padding: 2px;
-    border: 1px solid $BACKGROUND_NORMAL;
-    border: 1px solid $BACKGROUND_DARK;
+    border: $BORDER_NORMAL;
+    border: $BORDER_DARK;
 }
 
 /* QToolBar ---------------------------------------------------------------
@@ -740,25 +740,25 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtoolbar
 --------------------------------------------------------------------------- */
 QToolBar {
     background-color: $BACKGROUND_NORMAL;
-    border-bottom: 1px solid $BACKGROUND_DARK;
+    border-bottom: $BORDER_DARK;
     padding: 2px;
     font-weight: bold;
     spacing: 2px;
 
     QToolButton {
         background-color: $BACKGROUND_NORMAL;
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
 
         &:hover {
-            border: 1px solid $SELECTION_LIGHT;
+            border: $BORDER_SELECTION_LIGHT;
         }
 
         &:checked {
-            border: 1px solid $BACKGROUND_DARK;
+            border: $BORDER_DARK;
             background-color: $BACKGROUND_DARK;
 
             &:hover {
-                border: 1px solid $SELECTION_LIGHT;
+                border: $BORDER_SELECTION_LIGHT;
             }
         }
     }
@@ -802,7 +802,7 @@ QToolButton#qt_toolbar_ext_button {
 --------------------------------------------------------------------------- */
 QAbstractSpinBox {
     background-color: $BACKGROUND_DARK;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     color: $FOREGROUND_LIGHT;
 
     /* This fixes 103, 111 */
@@ -819,8 +819,8 @@ QAbstractSpinBox {
         background-color: transparent $BACKGROUND_DARK;
         subcontrol-origin: border;
         subcontrol-position: top right;
-        border-left: 1px solid $BACKGROUND_NORMAL;
-        border-bottom: 1px solid $BACKGROUND_NORMAL;
+        border-left: $BORDER_NORMAL;
+        border-bottom: $BORDER_NORMAL;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         margin: 1px;
@@ -844,8 +844,8 @@ QAbstractSpinBox {
         background-color: transparent $BACKGROUND_DARK;
         subcontrol-origin: border;
         subcontrol-position: bottom right;
-        border-left: 1px solid $BACKGROUND_NORMAL;
-        border-top: 1px solid $BACKGROUND_NORMAL;
+        border-left: $BORDER_NORMAL;
+        border-top: $BORDER_NORMAL;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         margin: 1px;
@@ -866,12 +866,12 @@ QAbstractSpinBox {
     }
 
     &:hover {
-        border: 1px solid $SELECTION_LIGHT;
+        border: $BORDER_SELECTION_LIGHT;
         color: $FOREGROUND_LIGHT;
     }
 
     &:focus {
-        border: 1px solid $SELECTION_NORMAL;
+        border: $BORDER_SELECTION_NORMAL;
     }
 
     &:selected {
@@ -910,13 +910,13 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qabstractscrollarea
 --------------------------------------------------------------------------- */
 QTextBrowser {
     background-color: $BACKGROUND_DARK;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     color: $FOREGROUND_LIGHT;
     border-radius: $SIZE_BORDER_RADIUS;
 
     &:disabled {
         background-color: $BACKGROUND_DARK;
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         color: $FOREGROUND_DARK;
         border-radius: $SIZE_BORDER_RADIUS;
     }
@@ -925,7 +925,7 @@ QTextBrowser {
     &:!hover,
     &:selected,
     &:pressed {
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
     }
 }
 
@@ -934,13 +934,13 @@ QTextBrowser {
 --------------------------------------------------------------------------- */
 QGraphicsView {
     background-color: $BACKGROUND_DARK;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     color: $FOREGROUND_LIGHT;
     border-radius: $SIZE_BORDER_RADIUS;
 
     &:disabled {
         background-color: $BACKGROUND_DARK;
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         color: $FOREGROUND_DARK;
         border-radius: $SIZE_BORDER_RADIUS;
     }
@@ -949,7 +949,7 @@ QGraphicsView {
     &:!hover,
     &:selected,
     &:pressed {
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
     }
 }
 
@@ -957,7 +957,7 @@ QGraphicsView {
 
 --------------------------------------------------------------------------- */
 QCalendarWidget {
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
 
     &:disabled {
@@ -986,14 +986,14 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qprogressbar
 --------------------------------------------------------------------------- */
 QProgressBar {
     background-color: $BACKGROUND_DARK;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     color: $FOREGROUND_LIGHT;
     border-radius: $SIZE_BORDER_RADIUS;
     text-align: center;
 
     &:disabled {
         background-color: $BACKGROUND_DARK;
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         color: $FOREGROUND_DARK;
         border-radius: $SIZE_BORDER_RADIUS;
         text-align: center;
@@ -1023,7 +1023,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qpushbutton
 --------------------------------------------------------------------------- */
 QPushButton {
     background-color: $BACKGROUND_LIGHT;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     color: $FOREGROUND_LIGHT;
     border-radius: $SIZE_BORDER_RADIUS;
     padding: 3px;
@@ -1033,7 +1033,7 @@ QPushButton {
 
     &:disabled {
         background-color: $BACKGROUND_NORMAL;
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         color: $FOREGROUND_DARK;
         border-radius: $SIZE_BORDER_RADIUS;
         padding: 3px;
@@ -1041,14 +1041,14 @@ QPushButton {
 
     &:checked {
         background-color: $BACKGROUND_NORMAL;
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         border-radius: $SIZE_BORDER_RADIUS;
         padding: 3px;
         outline: none;
 
         &:disabled {
             background-color: $BACKGROUND_DARK;
-            border: 1px solid $BACKGROUND_NORMAL;
+            border: $BORDER_NORMAL;
             color: $FOREGROUND_DARK;
             border-radius: $SIZE_BORDER_RADIUS;
             padding: 3px;
@@ -1070,15 +1070,15 @@ QPushButton {
 
     &:pressed {
         background-color: $BACKGROUND_DARK;
-        border: 1px solid $BACKGROUND_DARK;
+        border: $BORDER_DARK;
 
         &:hover {
-            border: 1px solid $SELECTION_LIGHT;
+            border: $BORDER_SELECTION_LIGHT;
         }
     }
 
     &:hover {
-        border: 1px solid $SELECTION_LIGHT;
+        border: $BORDER_SELECTION_LIGHT;
         color: $FOREGROUND_LIGHT;
     }
 
@@ -1088,12 +1088,12 @@ QPushButton {
     }
 
     &:hover {
-        border: 1px solid $SELECTION_LIGHT;
+        border: $BORDER_SELECTION_LIGHT;
         color: $FOREGROUND_LIGHT;
     }
 
     &:focus {
-        border: 1px solid $SELECTION_NORMAL;
+        border: $BORDER_SELECTION_NORMAL;
     }
 
 }
@@ -1112,17 +1112,17 @@ QToolButton {
 
     &:checked {
         background-color: transparent;
-        border: 1px solid $SELECTION_NORMAL;
+        border: $BORDER_SELECTION_NORMAL;
 
         &:disabled {
-            border: 1px solid $SELECTION_DARK;
+            border: $BORDER_SELECTION_DARK;
         }
     }
 
     &:pressed {
         margin: 1px;
         background-color: transparent;
-        border: 1px solid $SELECTION_NORMAL;
+        border: $BORDER_SELECTION_NORMAL;
     }
 
     &:disabled {
@@ -1130,7 +1130,7 @@ QToolButton {
     }
 
     &:hover {
-        border: 1px solid $SELECTION_LIGHT;
+        border: $BORDER_SELECTION_LIGHT;
     }
 
     /* The subcontrols below are used only in the DelayedPopup mode */
@@ -1164,17 +1164,17 @@ QToolButton {
     &::menu-button {
         padding: 2px;
         border-radius: $SIZE_BORDER_RADIUS;
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         width: 12px;
         outline: none;
 
         &:hover {
-            border: 1px solid $SELECTION_LIGHT;
+            border: $BORDER_SELECTION_LIGHT;
         }
 
         &:checked {
             &:hover {
-                border: 1px solid $SELECTION_LIGHT;
+                border: $BORDER_SELECTION_LIGHT;
             }
         }
     }
@@ -1205,7 +1205,7 @@ QToolButton {
 --------------------------------------------------------------------------- */
 QCommandLinkButton {
     background-color: transparent;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     color: $FOREGROUND_LIGHT;
     border-radius: $SIZE_BORDER_RADIUS;
     padding: 0px;
@@ -1227,7 +1227,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qcombobox
 
 --------------------------------------------------------------------------- */
 QComboBox {
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
     selection-background-color: $SELECTION_NORMAL;
     padding-left: 4px;
@@ -1242,7 +1242,7 @@ QComboBox {
     /* min-width: 75px;      removed to fix #109 */
 
     QAbstractItemView {
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         border-radius: 0;
         background-color: $BACKGROUND_DARK;
         selection-background-color: $SELECTION_NORMAL;
@@ -1269,11 +1269,11 @@ QComboBox {
     }
 
     &:hover {
-        border: 1px solid $SELECTION_LIGHT;
+        border: $BORDER_SELECTION_LIGHT;
     }
 
     &:focus {
-        border: 1px solid $SELECTION_NORMAL;
+        border: $BORDER_SELECTION_NORMAL;
     }
 
     &:on {
@@ -1348,7 +1348,7 @@ QSlider {
     &::groove {
         &:horizontal {
             background: $BACKGROUND_NORMAL;
-            border: 1px solid $BACKGROUND_NORMAL;
+            border: $BORDER_NORMAL;
             height: 4px;
             margin: 0px;
             border-radius: $SIZE_BORDER_RADIUS;
@@ -1356,7 +1356,7 @@ QSlider {
 
         &:vertical {
             background: $BACKGROUND_NORMAL;
-            border: 1px solid $BACKGROUND_NORMAL;
+            border: $BORDER_NORMAL;
             width: 4px;
             margin: 0px;
             border-radius: $SIZE_BORDER_RADIUS;
@@ -1367,7 +1367,7 @@ QSlider {
 
         &:vertical {
             background: $SELECTION_NORMAL;
-            border: 1px solid $BACKGROUND_NORMAL;
+            border: $BORDER_NORMAL;
             width: 4px;
             margin: 0px;
             border-radius: $SIZE_BORDER_RADIUS;
@@ -1382,7 +1382,7 @@ QSlider {
 
         &:horizontal {
             background: $SELECTION_NORMAL;
-            border: 1px solid $BACKGROUND_NORMAL;
+            border: $BORDER_NORMAL;
             height: 4px;
             margin: 0px;
             border-radius: $SIZE_BORDER_RADIUS;
@@ -1397,7 +1397,7 @@ QSlider {
 
         &:horizontal {
             background: $FOREGROUND_DARK;
-            border: 1px solid $BACKGROUND_NORMAL;
+            border: $BORDER_NORMAL;
             width: 8px;
             height: 8px;
             margin: -8px 0px;
@@ -1405,17 +1405,17 @@ QSlider {
 
             &:hover {
                 background: $SELECTION_LIGHT;
-                border: 1px solid $SELECTION_LIGHT;
+                border: $BORDER_SELECTION_LIGHT;
             }
 
             &:focus {
-                border: 1px solid $SELECTION_NORMAL;
+                border: $BORDER_SELECTION_NORMAL;
             }
         }
 
         &:vertical {
             background: $FOREGROUND_DARK;
-            border: 1px solid $BACKGROUND_NORMAL;
+            border: $BORDER_NORMAL;
             width: 8px;
             height: 8px;
             margin: 0 -8px;
@@ -1423,11 +1423,11 @@ QSlider {
 
             &:hover {
                 background: $SELECTION_LIGHT;
-                border: 1px solid $SELECTION_LIGHT;
+                border: $BORDER_SELECTION_LIGHT;
             }
 
             &:focus {
-                border: 1px solid $SELECTION_NORMAL;
+                border: $BORDER_SELECTION_NORMAL;
             }
         }
     }
@@ -1447,7 +1447,7 @@ QLineEdit {
     padding-left: 4px;
     padding-right: 4px;
     border-style: solid;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
     color: $FOREGROUND_LIGHT;
 
@@ -1457,12 +1457,12 @@ QLineEdit {
     }
 
     &:hover {
-        border: 1px solid $SELECTION_LIGHT;
+        border: $BORDER_SELECTION_LIGHT;
         color: $FOREGROUND_LIGHT;
     }
 
     &:focus {
-        border: 1px solid $SELECTION_NORMAL;
+        border: $BORDER_SELECTION_NORMAL;
     }
 
     &:selected {
@@ -1486,7 +1486,7 @@ QTabWidget {
     }
 
     &::pane {
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         border-radius: $SIZE_BORDER_RADIUS;
         margin: 0px;
         /* Fixes double border inside pane with pyqt5 */
@@ -1630,7 +1630,7 @@ QTabBar {
             }
 
             &:!selected:hover {
-                border: 1px solid $SELECTION_LIGHT;
+                border: $BORDER_SELECTION_LIGHT;
                 border-bottom: 3px solid $SELECTION_LIGHT;
 
                 /* Fixes spyder-ide/spyder#9766 */
@@ -1661,7 +1661,7 @@ QTabBar {
             }
 
             &:!selected:hover {
-                border: 1px solid $SELECTION_LIGHT;
+                border: $BORDER_SELECTION_LIGHT;
                 border-top: 3px solid $SELECTION_LIGHT;
 
                 /* Fixes spyder-ide/spyder#9766 */
@@ -1690,7 +1690,7 @@ QTabBar {
             }
 
             &:!selected:hover {
-                border: 1px solid $SELECTION_LIGHT;
+                border: $BORDER_SELECTION_LIGHT;
                 border-right: 3px solid $SELECTION_LIGHT;
                 padding: 0px;
             }
@@ -1716,7 +1716,7 @@ QTabBar {
             }
 
             &:!selected:hover {
-                border: 1px solid $SELECTION_LIGHT;
+                border: $BORDER_SELECTION_LIGHT;
                 border-left: 3px solid $SELECTION_LIGHT;
                 padding: 0px;
             }
@@ -1733,7 +1733,7 @@ QTabBar {
             background-color: $BACKGROUND_NORMAL;
 
             &:hover {
-                border: 1px solid $SELECTION_LIGHT;
+                border: $BORDER_SELECTION_LIGHT;
             }
         }
 
@@ -1763,9 +1763,9 @@ QTabBar {
 
 --------------------------------------------------------------------------- */
 QDockWidget {
-    outline: 1px solid $BACKGROUND_NORMAL;
+    outline: $BORDER_NORMAL;
     background-color: $BACKGROUND_DARK;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
     titlebar-close-icon: url($PATH_RESOURCES + '/rc/window_close.png');
     titlebar-normal-icon: url($PATH_RESOURCES + '/rc/window_undock.png');
@@ -1903,7 +1903,7 @@ QListView,
 QTableView,
 QColumnView {
     background-color: $BACKGROUND_DARK;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     color: $FOREGROUND_LIGHT;
     gridline-color: $BACKGROUND_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
@@ -1920,7 +1920,7 @@ QColumnView {
 
     &:hover {
         background-color: $BACKGROUND_DARK;
-        border: 1px solid $SELECTION_LIGHT;
+        border: $BORDER_SELECTION_LIGHT;
     }
 
     &::item {
@@ -1998,11 +1998,11 @@ QHeaderView {
         &::horizontal {
             padding-left: 4px;
             padding-right: 4px;
-            border-left: 1px solid $BACKGROUND_DARK;
+            border-left: $BORDER_DARK;
 
             &::first,
             &::only-one {
-                border-left: 1px solid $BACKGROUND_NORMAL;
+                border-left: $BORDER_NORMAL;
             }
 
             &:disabled {
@@ -2013,11 +2013,11 @@ QHeaderView {
         &::vertical {
             padding-left: 4px;
             padding-right: 4px;
-            border-top: 1px solid $BACKGROUND_DARK;
+            border-top: $BORDER_DARK;
 
             &::first,
             &::only-one {
-                border-top: 1px solid $BACKGROUND_NORMAL;
+                border-top: $BORDER_NORMAL;
             }
 
             &:disabled {
@@ -2057,7 +2057,7 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qtoolbox
 QToolBox {
     padding: 0px;
     border: 0px;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
 
     &:selected {
         padding: 0px;
@@ -2066,7 +2066,7 @@ QToolBox {
 
     &::tab {
         background-color: $BACKGROUND_DARK;
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         color: $FOREGROUND_LIGHT;
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
@@ -2121,7 +2121,7 @@ https://stackoverflow.com/questions/14581498/qt-stylesheet-for-hline-vline-color
 
 .QFrame {
     border-radius: $SIZE_BORDER_RADIUS;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
 
     /* No frame */
     &[frameShape="0"] {
@@ -2185,7 +2185,7 @@ QSplitter {
 QDateEdit, QDateTimeEdit {
     selection-background-color: $SELECTION_NORMAL;
     border-style: solid;
-    border: 1px solid $BACKGROUND_NORMAL;
+    border: $BORDER_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
 
     /* This fixes 103, 111 */
@@ -2224,7 +2224,7 @@ QDateEdit, QDateTimeEdit {
     QAbstractItemView {
         background-color: $BACKGROUND_DARK;
         border-radius: $SIZE_BORDER_RADIUS;
-        border: 1px solid $BACKGROUND_NORMAL;
+        border: $BORDER_NORMAL;
         selection-background-color: $SELECTION_NORMAL;
     }
 }
@@ -2236,7 +2236,7 @@ QDateEdit, QDateTimeEdit {
 QAbstractView {
 
     &:hover {
-        border: 1px solid $SELECTION_LIGHT;
+        border: $BORDER_SELECTION_LIGHT;
         color: $FOREGROUND_LIGHT;
     }
 

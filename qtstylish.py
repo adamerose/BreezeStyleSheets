@@ -1,4 +1,5 @@
-import sys, os
+import sys
+import os
 
 dirname = os.path.dirname(__file__)
 
@@ -12,6 +13,8 @@ def dark():
 def mydark():
     with open(os.path.join(dirname, "styling/compiled/style.qss")) as f:
         import styling.compiled.resources
+        from styling.compile import compile
+        compile()
         return f.read()
 
 
