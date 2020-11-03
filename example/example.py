@@ -10,6 +10,7 @@ from . import example_tabs
 from . import example_widgets
 from . import example_buttons
 from . import example_containers
+from . import example_other
 
 import qtstylish
 
@@ -30,9 +31,9 @@ class Example(QtWidgets.QMainWindow):
                   example_buttons,
                   example_containers,
                   example_dock,
+                  example_other
                   ]:
             self.tab_widget.addTab(x.Example(), x.__name__.split("_")[1])
-
 
 
 if __name__ == "__main__":

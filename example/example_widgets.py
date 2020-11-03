@@ -270,6 +270,7 @@ class Example(QtWidgets.QMainWindow):
         self.tableWidget.setToolTip("This is a tool tip")
         self.tableWidget.setStatusTip("This is a status tip")
         self.tableWidget.setWhatsThis("This is \"what is this\"")
+        self.tableWidget.setAlternatingRowColors(True)
         item = self.tableWidget.verticalHeaderItem(0)
         item.setText("New Row")
         item = self.tableWidget.verticalHeaderItem(1)

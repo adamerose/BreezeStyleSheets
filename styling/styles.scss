@@ -1,11 +1,13 @@
 // ========================================================================== //
 // QWidget (FINISHED)
 
-
 QWidget {
     background-color: $BACKGROUND_DARK;
-    border-color: $BACKGROUND_LIGHT;
     color: $FOREGROUND_LIGHT;
+    border-color: $BACKGROUND_NORMAL;
+
+    // For alternating row color
+    alternate-background-color: red; // TODO
 
     // Affects QLineEdit, QListView, QTableView, QTextEdit, QTreeView, and anything with highlighted text
     selection-background-color: $SELECTION_NORMAL;
@@ -31,21 +33,17 @@ QWidget {
             background-color: $SELECTION_LIGHT;
         }
     }
-}
-
-QLineEdit,
-QListView {
 
 }
 
 // ========================================================================== //
-// QToolTip (FINISHED)
+// QAbstractScrollArea
 
-QToolTip {
-    background-color: $BACKGROUND_LIGHT;
-    border: 1px solid $BACKGROUND_DARK;
-    color: $FOREGROUND_LIGHT;
+QAbstractScrollArea {
+    // We need to set the border for these widgets to inherit colors set in QWidget
+    border: 1px solid;
 }
+
 
 // ========================================================================== //
 // QStatusBar (FINISHED)
@@ -64,17 +62,10 @@ QStatusBar {
 }
 
 // ========================================================================== //
-// QCheckBox (FINISHED)
+// QCheckBox, QRadioButton (FINISHED)
 
-QCheckBox {
-    background-color: $BACKGROUND_DARK;
-    color: $FOREGROUND_LIGHT;
+QCheckBox, QRadioButton {
     spacing: 4px;
-
-    QWidget:disabled {
-        background-color: $BACKGROUND_DARK;
-        color: $FOREGROUND_DARK;
-    }
 
     &::indicator {
         margin-left: 4px;
@@ -92,41 +83,6 @@ QGroupBox {
     border-radius: $SIZE_BORDER_RADIUS;
 }
 
-// ========================================================================== //
-// QRadioButton
-
-QRadioButton {
-    background-color: $BACKGROUND_DARK;
-    color: $FOREGROUND_LIGHT;
-    spacing: 4px;
-    padding: 0px;
-    border: none;
-    outline: none;
-
-    &:disabled {
-        background-color: $BACKGROUND_DARK;
-        color: $FOREGROUND_DARK;
-        border: none;
-        outline: none;
-    }
-
-    QWidget {
-        background-color: $BACKGROUND_DARK;
-        color: $FOREGROUND_LIGHT;
-        spacing: 0px;
-        padding: 0px;
-        outline: none;
-        border: none;
-    }
-
-    &::indicator {
-        border: none;
-        outline: none;
-        margin-left: 4px;
-        height: 16px;
-        width: 16px;
-    }
-}
 
 // ========================================================================== //
 // QMenuBar
@@ -154,7 +110,7 @@ QMenu {
 
     &::separator {
         height: 1px;
-        background-color: $BACKGROUND_LIGHT;
+        background-color: $BACKGROUND_NORMAL;
         color: $FOREGROUND_LIGHT;
     }
 
@@ -184,46 +140,6 @@ QMenu {
     }
 }
 
-
-// ========================================================================== //
-// QAbstractItemView
-
-QAbstractItemView {
-    alternate-background-color: $BACKGROUND_DARK;
-    color: $FOREGROUND_LIGHT;
-    border: 1px solid $BACKGROUND_NORMAL;
-    border-radius: $SIZE_BORDER_RADIUS;
-
-    QLineEdit {
-        padding: 2px;
-    }
-}
-
-// ========================================================================== //
-// QAbstractScrollArea
-
-QAbstractScrollArea {
-    background-color: $BACKGROUND_DARK;
-    border: 1px solid $BACKGROUND_NORMAL;
-    border-radius: $SIZE_BORDER_RADIUS;
-    padding: 2px;
-    /* fix #159 */
-    min-height: 1.25em;
-    /* fix #159 */
-    color: $FOREGROUND_LIGHT;
-
-    &:disabled {
-        color: $FOREGROUND_DARK;
-    }
-}
-
-// ========================================================================== //
-// QScrollArea
-
-
-QScrollArea QWidget QWidget:disabled {
-    background-color: $BACKGROUND_DARK;
-}
 
 // ========================================================================== //
 // QScrollBar
@@ -573,47 +489,11 @@ QAbstractSpinBox {
 /* DISPLAYS --------------------------------------------------------------- */
 /* ------------------------------------------------------------------------ */
 
-// ========================================================================== //
-// QLabel
-
-QLabel {
-
-    color: $FOREGROUND_LIGHT;
-
-    &:disabled {
-        color: $FOREGROUND_DARK;
-    }
-}
 
 // ========================================================================== //
 // QTextBrowser
 
 QTextBrowser {
-    background-color: $BACKGROUND_DARK;
-    border: 1px solid $BACKGROUND_NORMAL;
-    color: $FOREGROUND_LIGHT;
-    border-radius: $SIZE_BORDER_RADIUS;
-
-    &:disabled {
-        background-color: $BACKGROUND_DARK;
-        border: 1px solid $BACKGROUND_NORMAL;
-        color: $FOREGROUND_DARK;
-        border-radius: $SIZE_BORDER_RADIUS;
-    }
-
-    &:hover,
-    &:!hover,
-    &:selected,
-    &:pressed {
-        border: 1px solid $BACKGROUND_NORMAL;
-    }
-}
-
-// ========================================================================== //
-// QGraphicsView
-
-
-QGraphicsView {
     background-color: $BACKGROUND_DARK;
     border: 1px solid $BACKGROUND_NORMAL;
     color: $FOREGROUND_LIGHT;
@@ -701,44 +581,16 @@ QProgressBar {
 // QPushButton
 
 QPushButton {
-    background-color: $BACKGROUND_LIGHT;
+    background-color: $BACKGROUND_NORMAL;
     border: 1px solid $BACKGROUND_NORMAL;
     color: $FOREGROUND_LIGHT;
     border-radius: $SIZE_BORDER_RADIUS;
     padding: 3px;
     outline: none;
-    /* Issue #194 - Special case of QPushButton inside dialogs, for better UI */
-    min-width: 80px;
-
-    &:disabled {
-        background-color: $BACKGROUND_NORMAL;
-        border: 1px solid $BACKGROUND_NORMAL;
-        color: $FOREGROUND_DARK;
-        border-radius: $SIZE_BORDER_RADIUS;
-        padding: 3px;
-    }
 
     &:checked {
-        background-color: $BACKGROUND_NORMAL;
+        background-color: $BACKGROUND_DARK;
         border: 1px solid $BACKGROUND_NORMAL;
-        border-radius: $SIZE_BORDER_RADIUS;
-        padding: 3px;
-        outline: none;
-
-        &:disabled {
-            background-color: $BACKGROUND_DARK;
-            border: 1px solid $BACKGROUND_NORMAL;
-            color: $FOREGROUND_DARK;
-            border-radius: $SIZE_BORDER_RADIUS;
-            padding: 3px;
-            outline: none;
-        }
-
-        &:selected {
-            background: $SELECTION_NORMAL;
-            color: $BACKGROUND_NORMAL;
-        }
-
     }
 
     &::menu-indicator {
@@ -878,18 +730,9 @@ QCommandLinkButton {
 QComboBox {
     border: 1px solid $BACKGROUND_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
-    selection-background-color: $SELECTION_NORMAL;
-    padding-left: 4px;
-    padding-right: 36px;
-    /* 4 + 16*2 See scrollbar size */
+    padding: 2px 4px;
 
-    /* Fixes #103, #111 */
-    min-height: 1.5em;
-
-    /* padding-top: 2px;     removed to fix #132 */
-    /* padding-bottom: 2px;  removed to fix #132 */
-    /* min-width: 75px;      removed to fix #109 */
-
+    // The pop-up of the QComboBox is a QAbstractItemView
     QAbstractItemView {
         border: 1px solid $BACKGROUND_NORMAL;
         border-radius: 0;
@@ -906,10 +749,6 @@ QComboBox {
             color: $BACKGROUND_NORMAL;
         }
 
-        &:alternate {
-            background: $BACKGROUND_DARK;
-        }
-
     }
 
     &:disabled {
@@ -921,43 +760,11 @@ QComboBox {
         border: 1px solid $SELECTION_NORMAL;
     }
 
-    &:on {
+    &:open {
         selection-background-color: $SELECTION_NORMAL;
     }
 
-    /* Needed to remove indicator - fix #132 */
-    &::indicator {
-        border: none;
-        border-radius: 0;
-        background-color: transparent;
-        selection-background-color: transparent;
-        color: transparent;
-        selection-color: transparent;
-
-        /* Needed to remove indicator - fix #132 */
-        &:alternate {
-            background: $BACKGROUND_DARK;
-        }
-    }
-
-    &::item {
-
-        &:alternate {
-            background: $BACKGROUND_DARK;
-        }
-
-        &:checked {
-            font-weight: bold;
-        }
-
-        &:selected {
-            border: 0px solid transparent;
-        }
-    }
-
     &::drop-down {
-        subcontrol-origin: padding;
-        subcontrol-position: top right;
         width: 12px;
         border-left: 1px solid $BACKGROUND_NORMAL;
     }
@@ -1075,12 +882,7 @@ QSlider {
 
 QLineEdit {
     background-color: $BACKGROUND_DARK;
-    padding-top: 2px;
-    /* This QLineEdit fix  103, 111 */
-    padding-bottom: 2px;
-    /* This QLineEdit fix  103, 111 */
-    padding-left: 4px;
-    padding-right: 4px;
+    padding: 2px 4px;
     border-style: solid;
     border: 1px solid $BACKGROUND_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
@@ -1142,17 +944,19 @@ QTabBar {
 
     &::tab {
 
-        border: 1px solid;
+        border: 1px solid $BACKGROUND_NORMAL;
         border-radius: $SIZE_BORDER_RADIUS;
 
         &:top,
         &:bottom {
             padding: 4px 14px;
+            margin: 0px 1px;
         }
 
         &:left,
         &:right {
             padding: 14px 4px;
+            margin: 1px 0px;
         }
 
         &:top {
@@ -1178,22 +982,11 @@ QTabBar {
         
         &:!selected {
             background-color: $BACKGROUND_NORMAL;
-            color: $FOREGROUND_MEDIUM_LIGHT;
-            border-color: $BACKGROUND_DARK;
-
+            color: $FOREGROUND_NORMAL;
         }
 
         &:selected {
-            background-color: $BACKGROUND_DARK;
-            color: $FOREGROUND_LIGHT;
-            border-color: $BACKGROUND_NORMAL;
-            
         }
-
-        &:disabled {
-            color: $FOREGROUND_DARK;
-        }
-
     }
     
     QToolButton {
@@ -1334,11 +1127,6 @@ QColumnView {
     gridline-color: $BACKGROUND_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
 
-    &:disabled {
-        background-color: $BACKGROUND_DARK;
-        color: $FOREGROUND_DARK;
-    }
-
     &:selected {
         background-color: $SELECTION_NORMAL;
         color: $BACKGROUND_NORMAL;
@@ -1407,11 +1195,6 @@ QHeaderView {
         &:checked {
             color: $FOREGROUND_LIGHT;
             background-color: $SELECTION_NORMAL;
-
-            &:disabled {
-                color: $FOREGROUND_DARK;
-                background-color: $SELECTION_DARK;
-            }
         }
 
         &::horizontal {
@@ -1423,10 +1206,6 @@ QHeaderView {
             &::only-one {
                 border-left: 1px solid $BACKGROUND_NORMAL;
             }
-
-            &:disabled {
-                color: $FOREGROUND_DARK;
-            }
         }
 
         &::vertical {
@@ -1437,10 +1216,6 @@ QHeaderView {
             &::first,
             &::only-one {
                 border-top: 1px solid $BACKGROUND_NORMAL;
-            }
-
-            &:disabled {
-                color: $FOREGROUND_DARK;
             }
         }
     }
@@ -1488,12 +1263,8 @@ QToolBox {
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
 
-        &:disabled {
-            color: $FOREGROUND_DARK;
-        }
-
         &:selected {
-            background-color: $BACKGROUND_LIGHT;
+            background-color: $SELECTION_NORMAL;
             border-bottom: 2px solid $SELECTION_NORMAL;
 
             &:disabled {
@@ -1561,30 +1332,11 @@ QToolBox {
 // QSplitter
 
 QSplitter {
-    background-color: $BACKGROUND_NORMAL;
-    spacing: 0px;
-    padding: 0px;
-    margin: 0px;
-
     &::handle {
-        background-color: $BACKGROUND_NORMAL;
-        border: 0px solid $BACKGROUND_DARK;
-        spacing: 0px;
+        background-color: $BACKGROUND_DARK;
         padding: 1px;
-        margin: 0px;
-
         &:hover {
-            background-color: $FOREGROUND_DARK;
-        }
-
-        &:horizontal {
-            width: 5px;
-            image: url($PATH_RESOURCES + '/rc/line_vertical.png');
-        }
-
-        &:vertical {
-            height: 5px;
-            image: url($PATH_RESOURCES + '/rc/line_horizontal.png');
+            background-color: $BACKGROUND_NORMAL;
         }
     }
 }
@@ -1656,7 +1408,8 @@ QPushButton,
 QAbstractSpinBox,
 QPlainTextEdit,
 QTextEdit,
-QActionButton {
+QActionButton,
+QTabBar::tab:!selected {
 
     &:hover {
         border: 1px solid $SELECTION_LIGHT;
@@ -1664,14 +1417,14 @@ QActionButton {
 }
 
 // ========================================================================== //
-// Checkboxes (FINISHED)
+// Indicators (FINISHED)
 
 QAbstractItemView::indicator,
 QCheckBox::indicator, 
 QGroupBox::indicator,
 QMenu::indicator:non-exclusive {    
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
 
     &:unchecked {
         image: url($PATH_RESOURCES + '/rc/checkbox_unchecked.png');
@@ -1719,8 +1472,8 @@ QMenu::indicator:non-exclusive {
 
 QRadioButton::indicator,
 QMenu::indicator:exclusive {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
 
     &:unchecked {
         image: url($PATH_RESOURCES + '/rc/radio_unchecked.png');

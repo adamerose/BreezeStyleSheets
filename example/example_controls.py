@@ -11,7 +11,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-
 class Example(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
@@ -25,10 +24,12 @@ class Example(QtWidgets.QMainWindow):
         self.comboBox.addItem("")
         self.comboBox.addItem("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/qss_icons/rc/window_undock.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(
+            ":/qss_icons/rc/window_undock.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.comboBox.addItem(icon, "")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/qss_icons/rc/window_undock_focus@2x.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(
+            ":/qss_icons/rc/window_undock_focus@2x.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.comboBox.addItem(icon1, "")
         self.horizontalSlider = QtWidgets.QSlider(self)
         self.horizontalSlider.setGeometry(QtCore.QRect(145, 163, 160, 22))
@@ -40,7 +41,8 @@ class Example(QtWidgets.QMainWindow):
         self.horizontalScrollBar = QtWidgets.QScrollBar(self)
         self.horizontalScrollBar.setGeometry(QtCore.QRect(145, 132, 160, 21))
         self.horizontalScrollBar.setMinimumSize(QtCore.QSize(0, 0))
-        self.horizontalScrollBar.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.horizontalScrollBar.setMaximumSize(
+            QtCore.QSize(16777215, 16777215))
         self.horizontalScrollBar.setProperty("value", 50)
         self.horizontalScrollBar.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalScrollBar.setObjectName("horizontalScrollBar")
@@ -64,9 +66,11 @@ class Example(QtWidgets.QMainWindow):
         self.label_21.setObjectName("label_21")
         self.horizontalScrollBarDis = QtWidgets.QScrollBar(self)
         self.horizontalScrollBarDis.setEnabled(False)
-        self.horizontalScrollBarDis.setGeometry(QtCore.QRect(312, 132, 154, 21))
+        self.horizontalScrollBarDis.setGeometry(
+            QtCore.QRect(312, 132, 154, 21))
         self.horizontalScrollBarDis.setMinimumSize(QtCore.QSize(0, 0))
-        self.horizontalScrollBarDis.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.horizontalScrollBarDis.setMaximumSize(
+            QtCore.QSize(16777215, 16777215))
         self.horizontalScrollBarDis.setProperty("value", 50)
         self.horizontalScrollBarDis.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalScrollBarDis.setObjectName("horizontalScrollBarDis")
@@ -149,7 +153,8 @@ class Example(QtWidgets.QMainWindow):
         self.horizontalSliderDis.setEnabled(False)
         self.horizontalSliderDis.setGeometry(QtCore.QRect(312, 160, 154, 22))
         self.horizontalSliderDis.setMinimumSize(QtCore.QSize(0, 0))
-        self.horizontalSliderDis.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.horizontalSliderDis.setMaximumSize(
+            QtCore.QSize(16777215, 16777215))
         self.horizontalSliderDis.setProperty("value", 50)
         self.horizontalSliderDis.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSliderDis.setObjectName("horizontalSliderDis")
@@ -180,7 +185,7 @@ class Example(QtWidgets.QMainWindow):
         font.setWeight(75)
         self.label_24.setFont(font)
         self.label_24.setObjectName("label_24")
-        self.setWindowTitle( "self")
+        self.setWindowTitle("self")
         self.comboBox.setToolTip("This is a tool tip")
         self.comboBox.setStatusTip("This is a status tip")
         self.comboBox.setWhatsThis("This is \"what is this\"")
