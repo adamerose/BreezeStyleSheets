@@ -1,7 +1,6 @@
 from example.example import Example
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
+from PyQt5 import QtWidgets
 import os
 import qtstylish
 
@@ -25,25 +24,18 @@ class ThemeSwitcher(QtWidgets.QWidget):
                                      self.setStyleSheet("")])
         btn_layout.addWidget(btn)
 
-        btn = QtWidgets.QPushButton("Breeze Light")
-        btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                     importlib.reload(qtstylish),
-                                     print("Done"),
-                                     self.setStyleSheet(qtstylish.light())])
-        btn_layout.addWidget(btn)
-
-        btn = QtWidgets.QPushButton("Breeze Dark")
-        btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                     importlib.reload(qtstylish),
-                                     print("Done"),
-                                     self.setStyleSheet(qtstylish.dark())])
-        btn_layout.addWidget(btn)
-
         btn = QtWidgets.QPushButton("QtStylish Dark")
         btn.clicked.connect(lambda: [print("Reloading styles..."),
                                      importlib.reload(qtstylish),
                                      print("Done"),
                                      self.setStyleSheet(qtstylish.mydark())])
+        btn_layout.addWidget(btn)
+
+        btn = QtWidgets.QPushButton("QtStylish Light")
+        btn.clicked.connect(lambda: [print("Reloading styles..."),
+                                     importlib.reload(qtstylish),
+                                     print("Done"),
+                                     self.setStyleSheet(qtstylish.mylight())])
         btn_layout.addWidget(btn)
 
         btn = QtWidgets.QPushButton("QDarkStyle")
@@ -52,6 +44,16 @@ class ThemeSwitcher(QtWidgets.QWidget):
                                      print("Done"),
                                      self.setStyleSheet(qtstylish.qdarkstyle())])
         btn_layout.addWidget(btn)
+
+        ###################
+
+        # theme_btn_layout = QtWidgets.QHBoxLayout()
+        # for style in QtWidgets.QStyleFactory().keys():
+        #     btn = QtWidgets.QPushButton(style)
+        #     btn.clicked.connect(lambda _, s=style: [app.setStyle(QtWidgets.QStyleFactory.create(s)),
+        #                                             print(f"Setting style to {s}")])
+        #     theme_btn_layout.addWidget(btn)
+        # layout.addLayout(theme_btn_layout)
 
         layout.addLayout(btn_layout)
         layout.addWidget(widget_to_style)
