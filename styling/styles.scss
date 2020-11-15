@@ -49,8 +49,8 @@ QTabBar::tab:selected {
 
 QAbstractScrollArea {
     background-color: $BACKGROUND_2;
+    border: 1px solid $BORDER_1;
 }
-
 
 QToolButton,
 QComboBox,
@@ -61,7 +61,6 @@ QTabWidget::pane,
 QDockWidget,
 QTreeView,
 QListView,
-QTableView,
 QColumnView,
 QDateEdit, 
 QDateTimeEdit,
@@ -71,7 +70,6 @@ QDateEdit>QAbstractItemView,
 QDateTimeEdit>QAbstractItemView,
 QToolBox {
     background-color: $BACKGROUND_0;
-    border: 1px solid $BORDER_1;
     
     &:disabled {
         color: $FOREGROUND_DISABLED;
@@ -119,46 +117,46 @@ QGroupBox {
 // QTableView
 
 QTableView {
-    border: 1px solid green;
+    border: 1px solid $BORDER_1;
 }
 QHeaderView {
-    border: none;
-    &::section {
-        border: 1px solid red;
-        // &:horizontal {
-        //     border-top-width: 0px;
-        //     border-left-width: 0px;
-        //     background-color: $BACKGROUND_SURFACE;
-        // }
-        // &:vertical {
-        //     border-left-width: 0px;
-        //     border-top-width: 0px;
-        //     background-color: $BACKGROUND_SURFACE_HORZ;
-        // }
-    
-    }
+  border: none;
+  outline: none;
+  &::section {
+    border: 1px solid $BORDER_1;
+    outline: none;
+        &:horizontal {
+            border-width: 0px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            background-color: $BACKGROUND_SURFACE;
+        }
+        &:vertical {
+            border-width: 0px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            background-color: $BACKGROUND_SURFACE;
+        }
+
+  }
 }
+
 
 QTableCornerButton {
     &::section {
-        border: none;
+        border: 1px solid $BORDER_1;
+        border-width: 0px;
+        border-right-width: 1px;
+        border-bottom-width: 1px;
         background-color: $BACKGROUND_SURFACE;
     }
 }
 
-QStatusBar {
-    QWidget {
-        background: transparent;
-    }
-    /* Removes white vertical borders separating items */
-    &::item {
-        border: none;
-    }
-}
 
+// ========================================================================== //
 // QTabWidget
-QTabWidget {
 
+QTabWidget {
     &::pane {
         padding: 1px;
         &:top { 
@@ -226,11 +224,18 @@ QTabBar {
     }
 }
 
+
+// ========================================================================== //
+// QDockWidget
+
 QDockWidget {
     &::title {
         padding: 6px;
     }
 }
+
+// ========================================================================== //
+// QToolBox
 
 QToolBox {
     &::tab {
@@ -247,25 +252,8 @@ QToolBox {
 
 }
 
-QStatusBar {
-    border: 0px solid;
-    padding: 0px;
-
-    /* Fixes #205, white vertical borders separating items */
-    &::item {
-        border: none;
-    }
-
-
-    QLabel {
-        /* Fixes Spyder #9120, #9121 */
-        background: transparent;
-    }
-}
-
-QAbstractScrollArea {
-    border: 1px solid $BORDER_1;
-}
+// ========================================================================== //
+// QScrollBar
 
 QScrollBar {
     $SCROLLBAR_WIDTH: 16px;
@@ -333,6 +321,33 @@ QScrollBar {
         }
     }
 }
+// ========================================================================== //
+// QMainMenu
+QStatusBar {
+    border: 0px solid;
+    padding: 0px;
+
+    /* Fixes #205, white vertical borders separating items */
+    &::item {
+        border: none;
+    }
+
+
+    QLabel {
+        /* Fixes Spyder #9120, #9121 */
+        background: transparent;
+    }
+}
+QStatusBar {
+    QWidget {
+        background: transparent;
+    }
+    /* Removes white vertical borders separating items */
+    &::item {
+        border: none;
+    }
+}
+
 
 // ========================================================================== //
 // Rounded Edges
