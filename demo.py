@@ -24,18 +24,18 @@ class ThemeSwitcher(QtWidgets.QWidget):
                                      self.setStyleSheet("")])
         btn_layout.addWidget(btn)
 
-        btn = QtWidgets.QPushButton("QtStylish Dark")
-        btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                     importlib.reload(qtstylish),
-                                     print("Done"),
-                                     self.setStyleSheet(qtstylish.mydark())])
-        btn_layout.addWidget(btn)
-
         btn = QtWidgets.QPushButton("QtStylish Light")
         btn.clicked.connect(lambda: [print("Reloading styles..."),
                                      importlib.reload(qtstylish),
                                      print("Done"),
                                      self.setStyleSheet(qtstylish.mylight())])
+        btn_layout.addWidget(btn)
+
+        btn = QtWidgets.QPushButton("QtStylish Dark")
+        btn.clicked.connect(lambda: [print("Reloading styles..."),
+                                     importlib.reload(qtstylish),
+                                     print("Done"),
+                                     self.setStyleSheet(qtstylish.mydark())])
         btn_layout.addWidget(btn)
 
         btn = QtWidgets.QPushButton("QDarkStyle")
@@ -67,5 +67,5 @@ if __name__ == '__main__':
     example = Example()
     switcher = ThemeSwitcher(example)
 
-    switcher.resize(1000, 1000)
+    switcher.resize(1000, 700)
     app.exec_()

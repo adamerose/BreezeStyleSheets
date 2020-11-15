@@ -526,7 +526,6 @@ QScrollBar {
     }
 
     &::handle {
-
         &:horizontal {
             background-color: $FOREGROUND_DARK;
             border: $BORDER_NORMAL;

@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import *
 from pandasgui import show
 from pandasgui.datasets import all_datasets
 
+
 class Example(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
@@ -697,6 +698,7 @@ class Example(QtWidgets.QWidget):
 
         x = QTableWidget()
         x.setEnabled(True)
+        x.setSortingEnabled(True)
         x.setRowCount(20)
         x.setColumnCount(20)
         for tr in range(20):
@@ -709,6 +711,7 @@ class Example(QtWidgets.QWidget):
 
         x = QTableWidget()
         x.setEnabled(False)
+        x.setSortingEnabled(True)
         x.setRowCount(20)
         x.setColumnCount(20)
         for tr in range(20):
@@ -779,6 +782,7 @@ class Example(QtWidgets.QWidget):
 
         # QToolTip
         x = QPushButton("Hover Me")
+        x.setEnabled(True)
         x.setStatusTip("This is text set by .setStatusTip")
         x.setToolTip("This is text set by .setToolTip")
         layout.addWidget(x)
@@ -876,7 +880,6 @@ class Example(QtWidgets.QWidget):
 
         #########################
         # Temp
-
 
         gui = show(**all_datasets, settings={"block": False})
         tabs.addTab(gui, 'PandasGUI')
