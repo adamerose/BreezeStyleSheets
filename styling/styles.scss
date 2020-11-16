@@ -36,12 +36,12 @@ QTabWidget .QFrame,
 QTabWidget .QSplitter,
 QTabWidget .QStackedWidget,
 QTabBar::tab:selected,
-QGroupBox,
 QDial {
     background-color: $BACKGROUND_1;
 }
 
-QTabBar::tab:selected {
+QTabBar::tab:selected,
+QGroupBox {
     background-color: $BACKGROUND_1;
     border: 1px solid $BORDER_1;
 }
@@ -57,7 +57,6 @@ QComboBox,
 QLineEdit,
 QTextEdit,
 QPlainTextEdit,
-QTabWidget::pane,
 QDockWidget,
 QTreeView,
 QListView,
@@ -70,6 +69,7 @@ QDateEdit>QAbstractItemView,
 QDateTimeEdit>QAbstractItemView,
 QToolBox {
     background-color: $BACKGROUND_0;
+    border: 1px solid $BORDER_1;
     
     &:disabled {
         color: $FOREGROUND_DISABLED;
@@ -78,8 +78,7 @@ QToolBox {
 
 
 QStatusBar,
-QDockWidget::title,
-QTabBar::tab:!selected {
+QDockWidget::title, {
     background: $BACKGROUND_3;
     border: 1px solid $BORDER_1;
 }
@@ -101,8 +100,6 @@ QToolBox::tab {
 
 QCheckBox, 
 QRadioButton, 
-QPushButton, 
-QToolButton, 
 QComboBox, 
 QLineEdit,
 QAbstractSpinBox {
@@ -114,10 +111,34 @@ QGroupBox {
 }
 
 // ========================================================================== //
+// Buttons
+
+QToolButton,
+QToolButton::menu-button,
+QPushButton,
+QActionButton,
+QTabBar::tab:!selected,
+QToolBox::tab:!selected {
+    &:hover {
+        background-color: $BACKGROUND_1;
+    }
+}
+
+
+QPushButton, 
+QToolButton {
+    padding: 3px 1px;
+    &:checked{
+        background-color: $BACKGROUND_3;
+    }
+}
+
+// ========================================================================== //
 // QTableView
 
 QTableView {
     border: 1px solid $BORDER_1;
+    background-color: $BACKGROUND_0;
 }
 QHeaderView {
   border: none;
@@ -125,6 +146,7 @@ QHeaderView {
   &::section {
     border: 1px solid $BORDER_1;
     outline: none;
+    padding: 2px 8px;
         &:horizontal {
             border-width: 0px;
             border-right-width: 1px;
@@ -158,6 +180,8 @@ QTableCornerButton {
 
 QTabWidget {
     &::pane {
+        background-color: $BACKGROUND_1;
+        border: 1px solid $BORDER_1;
         padding: 1px;
         &:top { 
             // Hide border between tab and pane (https://stackoverflow.com/a/10047229/3620725)
@@ -183,13 +207,17 @@ QTabWidget {
 QTabBar {
     &::tab {
         &:!selected {
+            // Gradient creates appearance of shadow being cast by pane onto tabs
+            background-color: qlineargradient(0, 1, 0, 0, (0.0 rgba(0,0,0,0.1), 0.4 $BACKGROUND_3));
+            border: 1px solid $BORDER_1;
             margin-top: 2px;
         }
 
-        border-right-width: 0px;
+        &:!last{
+            border-right-width: 0px;
+        }
         &:last{
             border-right-width: 1px;
-
         }
         &:top,
         &:bottom {
@@ -368,20 +396,6 @@ QDateTimeEdit>QAbstractItemView,
 .QWidget {
     border-radius: $SIZE_BORDER_RADIUS;
 }
-
-// ========================================================================== //
-// Hover Highlight
-QToolButton,
-QToolButton::menu-button,
-QPushButton,
-QActionButton,
-QTabBar::tab:!selected,
-QToolBox::tab:!selected {
-    &:hover {
-        background-color: $BACKGROUND_1;
-    }
-}
-
 
 // ========================================================================== //
 // Icons
