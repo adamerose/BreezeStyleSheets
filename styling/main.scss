@@ -31,18 +31,35 @@ QWidget {
 
 }
 
+QWidget {
+    background-color: $BACKGROUND_2;
+}
+// Containers
 QTabWidget .QWidget,
 QTabWidget .QFrame,
 QTabWidget .QSplitter,
 QTabWidget .QStackedWidget,
 QTabBar::tab:selected,
-QDial {
+QTabWidget::pane,
+QDial,
+QGroupBox {
     background-color: $BACKGROUND_1;
+}
+
+// Interactables
+QToolButton,
+QToolButton::menu-button,
+QPushButton,
+QActionButton,
+QTabBar::tab:!selected,
+QToolBox::tab:!selected {
+    &:hover {
+        background-color: $BACKGROUND_1;
+    }
 }
 
 QTabBar::tab:selected,
 QGroupBox {
-    background-color: $BACKGROUND_1;
     border: 1px solid $BORDER_1;
 }
 
@@ -113,16 +130,6 @@ QGroupBox {
 // ========================================================================== //
 // Buttons
 
-QToolButton,
-QToolButton::menu-button,
-QPushButton,
-QActionButton,
-QTabBar::tab:!selected,
-QToolBox::tab:!selected {
-    &:hover {
-        background-color: $BACKGROUND_1;
-    }
-}
 
 
 QPushButton, 
@@ -138,29 +145,37 @@ QToolButton {
 
 QTableView {
     border: 1px solid $BORDER_1;
-    background-color: $BACKGROUND_0;
+    // This background is seen between cells so effectively is cell border color
+    background-color: $BORDER_2;
+    &::item{
+        border: none;
+        background-color: $BACKGROUND_0;
+    }
 }
+
+QAbstractScrollArea::corner {
+    background-color: $BACKGROUND_2;
+}
+
 QHeaderView {
-  border: none;
-  outline: none;
-  &::section {
-    border: 1px solid $BORDER_1;
+    left: -5px;
+    border: none;
     outline: none;
-    padding: 2px 8px;
+    &::section {
+        border: 1px solid $BORDER_1;
+        outline: none;
+        padding: 2px 8px;
         &:horizontal {
-            border-width: 0px;
-            border-right-width: 1px;
-            border-bottom-width: 1px;
+            border-top-width: 0px;
+            border-left-width: 0px;
             background-color: $BACKGROUND_SURFACE;
         }
         &:vertical {
-            border-width: 0px;
-            border-right-width: 1px;
-            border-bottom-width: 1px;
+            border-top-width: 0px;
+            border-left-width: 0px;
             background-color: $BACKGROUND_SURFACE;
         }
-
-  }
+    }
 }
 
 
@@ -174,13 +189,99 @@ QTableCornerButton {
     }
 }
 
+// ========================================================================== //
+// QScrollBar
+
+QScrollBar {
+    $SCROLLBAR_WIDTH: 16px;
+
+    // Want light handle on dark background regardless of theme
+    background-color: darken($BACKGROUND_2, 10);
+
+    &::handle {
+        border: 1px solid $BORDER_1;
+        &:vertical {
+            border-width: 1px 0px;
+            min-height: 40px;
+            background-color: $BACKGROUND_SURFACE_HORZ;
+        }
+        &:horizontal {
+            border-width: 0px 1px;
+            min-width: 40px;
+            background-color: $BACKGROUND_SURFACE;
+        }
+    }
+    
+    &:horizontal {
+        border-top: 1px solid $BORDER_1;
+        height: $SCROLLBAR_WIDTH;
+        margin: 0px $SCROLLBAR_WIDTH;
+    }
+
+    &:vertical {
+        border-left: 1px solid $BORDER_1;
+        width: $SCROLLBAR_WIDTH;
+        margin: $SCROLLBAR_WIDTH 0px;
+    }
+
+    &::add-line {
+        margin: 0;
+        &:horizontal {
+            image: url(':/resources/arrow_right.png');
+            border-top: 1px solid $BORDER_1;
+            border-left: 1px solid $BORDER_1;
+            border-right: 1px solid $BORDER_1;
+            background-color: $BACKGROUND_SURFACE;
+            height: $SCROLLBAR_WIDTH;
+            width: $SCROLLBAR_WIDTH;
+            subcontrol-position: right;
+            subcontrol-origin: margin;
+        }
+
+        &:vertical {
+            image: url(':/resources/arrow_down.png');
+            border-left: 1px solid $BORDER_1;
+            border-top: 1px solid $BORDER_1;
+            border-bottom: 1px solid $BORDER_1;
+            background-color: $BACKGROUND_SURFACE_HORZ;
+            height: $SCROLLBAR_WIDTH;
+            width: $SCROLLBAR_WIDTH;
+            subcontrol-position: bottom;
+            subcontrol-origin: margin;
+        }
+    }
+
+    &::sub-line {
+        margin: 0;
+        &:horizontal {
+            image: url(':/resources/arrow_left.png');
+            border-top: 1px solid $BORDER_1;
+            border-right: 1px solid $BORDER_1;
+            background-color: $BACKGROUND_SURFACE;
+            height: $SCROLLBAR_WIDTH;
+            width: $SCROLLBAR_WIDTH;
+            subcontrol-position: left;
+            subcontrol-origin: margin;
+        }
+
+        &:vertical {
+            image: url(':/resources/arrow_up.png');
+            border-left: 1px solid $BORDER_1;
+            border-bottom: 1px solid $BORDER_1;
+            background-color: $BACKGROUND_SURFACE_HORZ;
+            height: $SCROLLBAR_WIDTH;
+            width: $SCROLLBAR_WIDTH;
+            subcontrol-position: top;
+            subcontrol-origin: margin;
+        }
+    }
+}
 
 // ========================================================================== //
 // QTabWidget
 
 QTabWidget {
     &::pane {
-        background-color: $BACKGROUND_1;
         border: 1px solid $BORDER_1;
         padding: 1px;
         &:top { 
@@ -208,17 +309,21 @@ QTabBar {
     &::tab {
         &:!selected {
             // Gradient creates appearance of shadow being cast by pane onto tabs
-            background-color: qlineargradient(0, 1, 0, 0, (0.0 rgba(0,0,0,0.1), 0.4 $BACKGROUND_3));
+            background-color: qlineargradient(0, 1, 0, 0, (0.0 rgba(0,0,0,0.1), 0.2 $BACKGROUND_2));
             border: 1px solid $BORDER_1;
             margin-top: 2px;
+            
+            &:!last{
+                border-right-width: 0px;
+            }
+            &:last{
+                border-right-width: 1px;
+            
+            }&:previous-selected{
+                border-left-width: 0px;
+            }
         }
 
-        &:!last{
-            border-right-width: 0px;
-        }
-        &:last{
-            border-right-width: 1px;
-        }
         &:top,
         &:bottom {
             padding: 6px 16px;
@@ -280,75 +385,7 @@ QToolBox {
 
 }
 
-// ========================================================================== //
-// QScrollBar
 
-QScrollBar {
-    $SCROLLBAR_WIDTH: 16px;
-
-    background-color: $BACKGROUND_3;
-    border: 1px solid $BORDER_1;
-
-    &::handle,
-    &::sub-line,
-    &::add-line {
-        border: 1px solid $BORDER_1;
-        &:vertical {
-            background-color: $BACKGROUND_SURFACE_HORZ;
-
-        }
-        &:horizontal {
-            background-color: $BACKGROUND_SURFACE;
-
-        }
-    }
-
-    &:horizontal {
-        height: $SCROLLBAR_WIDTH;
-        margin: 0px $SCROLLBAR_WIDTH;
-    }
-
-    &:vertical {
-        width: $SCROLLBAR_WIDTH;
-        margin: $SCROLLBAR_WIDTH 0px;
-    }
-
-    &::add-line {
-        border: 1px solid black;
-        margin: 0;
-        &:horizontal {
-            height: $SCROLLBAR_WIDTH;
-            width: $SCROLLBAR_WIDTH;
-            subcontrol-position: right;
-            subcontrol-origin: margin;
-        }
-
-        &:vertical {
-            height: $SCROLLBAR_WIDTH;
-            width: $SCROLLBAR_WIDTH;
-            subcontrol-position: bottom;
-            subcontrol-origin: margin;
-        }
-    }
-
-    &::sub-line {
-        border: 1px solid black;
-        margin: 0;
-        &:horizontal {
-            height: $SCROLLBAR_WIDTH;
-            width: $SCROLLBAR_WIDTH;
-            subcontrol-position: left;
-            subcontrol-origin: margin;
-        }
-
-        &:vertical {
-            height: $SCROLLBAR_WIDTH;
-            width: $SCROLLBAR_WIDTH;
-            subcontrol-position: top;
-            subcontrol-origin: margin;
-        }
-    }
-}
 // ========================================================================== //
 // QMainMenu
 QStatusBar {
@@ -376,7 +413,16 @@ QStatusBar {
     }
 }
 
+// ========================================================================== //
+// Misc
 
+QMenuBar {
+    border-bottom: 1px solid $BORDER_2;
+}
+
+QMenu {
+    border: 1px solid $BORDER_1;
+}
 // ========================================================================== //
 // Rounded Edges
 QToolButton,
@@ -400,70 +446,66 @@ QDateTimeEdit>QAbstractItemView,
 // ========================================================================== //
 // Icons
 QMenu::right-arrow {
-    image: url($PATH_RESOURCES + '/rc/arrow_right.png');
+    image: url(':/resources/arrow_right.png');
 }
 QScrollBar {
     &::add-line {
         &:horizontal {
-            image: url($PATH_RESOURCES + '/rc/arrow_right.png');
         }
 
         &:vertical {
-            image: url($PATH_RESOURCES + '/rc/arrow_down.png');
         }
     }
 
     &::sub-line {
         &:horizontal {
-            image: url($PATH_RESOURCES + '/rc/arrow_left.png');
         }
 
         &:vertical {
-            image: url($PATH_RESOURCES + '/rc/arrow_up.png');
         }
     }
 }
 QSizeGrip {
     width: 12px;
     height: 12px;
-    image: url($PATH_RESOURCES + '/rc/window_grip.png');
+    image: url(':/resources/window_grip.png');
 }
 QToolBar {
     &::handle {
         &:horizontal {
-            image: url($PATH_RESOURCES + '/rc/toolbar_move_horizontal.png');
+            image: url(':/resources/toolbar_move_horizontal.png');
         }
         &:vertical {
-            image: url($PATH_RESOURCES + '/rc/toolbar_move_vertical.png');
+            image: url(':/resources/toolbar_move_vertical.png');
         }
     }
 
     &::separator {
 
         &:horizontal {
-            image: url($PATH_RESOURCES + '/rc/toolbar_separator_horizontal.png');
+            image: url(':/resources/toolbar_separator_horizontal.png');
         }
 
         &:vertical {
-            image: url($PATH_RESOURCES + '/rc/toolbar_separator_vertical.png');
+            image: url(':/resources/toolbar_separator_vertical.png');
         }
     }
 }
 QAbstractSpinBox {
     &::up-arrow {
-        image: url($PATH_RESOURCES + '/rc/arrow_up.png');
+        image: url(':/resources/arrow_up.png');
         height: 8px;
         width: 8px;
     }
     &::down-arrow {
-        image: url($PATH_RESOURCES + '/rc/arrow_down.png');
+        image: url(':/resources/arrow_down.png');
         height: 8px;
         width: 8px;
     }
 }
 QComboBox {
     &::down-arrow {
-            image: url($PATH_RESOURCES + '/rc/arrow_down.png');
+            image: url(':/resources/arrow_down.png');
     }
 }
 QTabBar {
@@ -471,51 +513,51 @@ QTabBar {
     &::close-button {
         margin: 2px;
         padding: 2px;
-        image: url($PATH_RESOURCES + '/rc/window_close.png');
+        image: url(':/resources/window_close.png');
     }
 }
 
 QDockWidget {
     outline: 1px solid $BACKGROUND_3;
-    titlebar-close-icon: url($PATH_RESOURCES + '/rc/window_close.png');
-    titlebar-normal-icon: url($PATH_RESOURCES + '/rc/window_undock.png');
+    titlebar-close-icon: url(':/resources/window_close.png');
+    titlebar-normal-icon: url(':/resources/window_undock.png');
 }
 
 QTreeView {
     &:branch {
         &:has-siblings:!adjoins-item {
-            border-image: url($PATH_RESOURCES + '/rc/branch_line.png');
+            border-image: url(':/resources/branch_line.png');
         }
 
         &:has-siblings:adjoins-item {
-            border-image: url($PATH_RESOURCES + '/rc/branch_more.png');
+            border-image: url(':/resources/branch_more.png');
         }
 
         &:!has-children:!has-siblings:adjoins-item {
-            border-image: url($PATH_RESOURCES + '/rc/branch_end.png');
+            border-image: url(':/resources/branch_end.png');
         }
 
         &:has-children:!has-siblings:closed,
         &:closed:has-children:has-siblings {
             border-image: none;
-            image: url($PATH_RESOURCES + '/rc/branch_closed.png');
+            image: url(':/resources/branch_closed.png');
         }
 
         &:open:has-children:!has-siblings,
         &:open:has-children:has-siblings {
             border-image: none;
-            image: url($PATH_RESOURCES + '/rc/branch_open.png');
+            image: url(':/resources/branch_open.png');
         }
 
     }
 }
 QHeaderView {
     &::down-arrow {
-        image: url($PATH_RESOURCES + '/rc/arrow_down.png');
+        image: url(':/resources/arrow_down.png');
     }
 
     &::up-arrow {
-        image: url($PATH_RESOURCES + '/rc/arrow_up.png');
+        image: url(':/resources/arrow_up.png');
     }
 }
 QAbstractItemView::indicator,
@@ -526,15 +568,15 @@ QMenu::indicator:non-exclusive {
     height: 16px;
 
     &:unchecked {
-        image: url($PATH_RESOURCES + '/rc/checkbox_unchecked.png');
+        image: url(':/resources/checkbox_unchecked.png');
     }
 
     &:checked {
-        image: url($PATH_RESOURCES + '/rc/checkbox_checked.png');
+        image: url(':/resources/checkbox_checked.png');
     }
 
     &:indeterminate {
-        image: url($PATH_RESOURCES + '/rc/checkbox_indeterminate.png');
+        image: url(':/resources/checkbox_indeterminate.png');
     }
 }
 
@@ -544,11 +586,11 @@ QMenu::indicator:exclusive {
     height: 16px;
 
     &:unchecked {
-        image: url($PATH_RESOURCES + '/rc/radio_unchecked.png');
+        image: url(':/resources/radio_unchecked.png');
     }
 
     &:checked {
-        image: url($PATH_RESOURCES + '/rc/radio_checked.png');
+        image: url(':/resources/radio_checked.png');
     }
     
 }

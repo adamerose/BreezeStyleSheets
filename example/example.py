@@ -3,9 +3,6 @@ from PyQt5.QtCore import Qt
 
 from PyQt5.QtWidgets import *
 
-from pandasgui import show
-from pandasgui.datasets import all_datasets
-
 
 class Example(QtWidgets.QWidget):
     def __init__(self):
@@ -881,8 +878,11 @@ class Example(QtWidgets.QWidget):
         #########################
         # Temp
 
-        gui = show(**all_datasets, settings={"block": False})
-        tabs.addTab(gui, 'PandasGUI')
+
+        # from pandasgui import show
+        # from pandasgui.datasets import all_datasets
+        # gui = show(**all_datasets, settings={"block": False})
+        # tabs.addTab(gui, 'PandasGUI')
 
 
 if __name__ == "__main__":

@@ -3,6 +3,8 @@ import sys
 from PyQt5 import QtWidgets
 import os
 import qtstylish
+import qtmodern.styles
+import qtmodern.windows
 
 sys.path.insert(0, os.path.abspath(
     os.path.dirname(os.path.abspath(__file__)) + '/..'))
@@ -18,33 +20,28 @@ class ThemeSwitcher(QtWidgets.QWidget):
         btn_layout = QtWidgets.QHBoxLayout()
 
         btn = QtWidgets.QPushButton("Unstyled")
-        btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                     importlib.reload(qtstylish),
-                                     print("Done"),
-                                     self.setStyleSheet("")])
+        btn.clicked.connect(lambda: self.setStyleSheet(""))
         btn_layout.addWidget(btn)
 
-        btn = QtWidgets.QPushButton("QtStylish Light")
-        btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                     importlib.reload(qtstylish),
-                                     print("Done"),
-                                     self.setStyleSheet(qtstylish.mylight())])
+        btn = QtWidgets.QPushButton("Light")
+        btn.clicked.connect(lambda: self.setStyleSheet(qtstylish.light()))
         btn_layout.addWidget(btn)
 
-        btn = QtWidgets.QPushButton("QtStylish Dark")
-        btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                     importlib.reload(qtstylish),
-                                     print("Done"),
-                                     self.setStyleSheet(qtstylish.mydark())])
+        btn = QtWidgets.QPushButton("Dark")
+        btn.clicked.connect(lambda: self.setStyleSheet(qtstylish.dark()))
         btn_layout.addWidget(btn)
 
         btn = QtWidgets.QPushButton("QDarkStyle")
-        btn.clicked.connect(lambda: [print("Reloading styles..."),
-                                     importlib.reload(qtstylish),
-                                     print("Done"),
-                                     self.setStyleSheet(qtstylish.qdarkstyle())])
+        btn.clicked.connect(lambda: self.setStyleSheet(qtstylish.qdarkstyle()))
         btn_layout.addWidget(btn)
 
+        btn = QtWidgets.QPushButton("qtmodern")
+        btn.clicked.connect(lambda: qtmodern.styles.dark(app))
+        btn_layout.addWidget(btn)
+
+        btn = QtWidgets.QPushButton("qtmodern light")
+        btn.clicked.connect(lambda: qtmodern.styles.light(app))
+        btn_layout.addWidget(btn)
         ###################
 
         # theme_btn_layout = QtWidgets.QHBoxLayout()
