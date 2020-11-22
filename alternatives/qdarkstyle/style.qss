@@ -1468,15 +1468,15 @@ QTabBar::close-button {
   border: 0;
   margin: 2px;
   padding: 2px;
-  image: url(":/qss_icons/rc/window_close.png");
+  image: url(":/qss_icons/rc/close.png");
 }
 
 QTabBar::close-button:hover {
-  image: url(":/qss_icons/rc/window_close_focus.png");
+  image: url(":/qss_icons/rc/close_focus.png");
 }
 
 QTabBar::close-button:pressed {
-  image: url(":/qss_icons/rc/window_close_pressed.png");
+  image: url(":/qss_icons/rc/close_pressed.png");
 }
 
 /* QTabBar::tab - selected ------------------------------------------------
@@ -1706,7 +1706,7 @@ QDockWidget {
   background-color: #19232D;
   border: 1px solid #32414B;
   border-radius: 4px;
-  titlebar-close-icon: url(":/qss_icons/rc/window_close.png");
+  titlebar-close-icon: url(":/qss_icons/rc/close.png");
   titlebar-normal-icon: url(":/qss_icons/rc/window_undock.png");
 }
 
@@ -1725,11 +1725,11 @@ QDockWidget::close-button {
 }
 
 QDockWidget::close-button:hover {
-  image: url(":/qss_icons/rc/window_close_focus.png");
+  image: url(":/qss_icons/rc/close_focus.png");
 }
 
 QDockWidget::close-button:pressed {
-  image: url(":/qss_icons/rc/window_close_pressed.png");
+  image: url(":/qss_icons/rc/close_pressed.png");
 }
 
 QDockWidget::float-button {

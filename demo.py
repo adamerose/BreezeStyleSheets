@@ -1,6 +1,6 @@
 from example.example import Example
 import sys
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtGui, QtCore
 import os
 import qtstylish
 import qtmodern.styles
@@ -42,6 +42,7 @@ class ThemeSwitcher(QtWidgets.QWidget):
         btn = QtWidgets.QPushButton("qtmodern light")
         btn.clicked.connect(lambda: qtmodern.styles.light(app))
         btn_layout.addWidget(btn)
+
         ###################
 
         # theme_btn_layout = QtWidgets.QHBoxLayout()
@@ -59,6 +60,7 @@ class ThemeSwitcher(QtWidgets.QWidget):
 
 
 if __name__ == '__main__':
+    qtstylish.compile()
     app = QtWidgets.QApplication(sys.argv)
 
     example = Example()

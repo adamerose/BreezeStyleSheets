@@ -47,7 +47,6 @@ def compile():
     with open(os.path.join(dirname, "compiled/light.qss")) as f:
         global LIGHT
         LIGHT = f.read()
-    importlib.reload(qtstylish_rc)
 
 
 if __name__ == "__main__":

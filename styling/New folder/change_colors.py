@@ -1,0 +1,1 @@
+sed -e "s/#....../#FF0000/" arrow_down.svg > arrow_down_2.svg

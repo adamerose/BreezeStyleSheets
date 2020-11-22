@@ -8,9 +8,9 @@ class Example(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        tabs = QTabWidget()
+        self.tabs = QTabWidget()
         layout = QVBoxLayout()
-        layout.addWidget(tabs)
+        layout.addWidget(self.tabs)
         self.setLayout(layout)
 
         #########################
@@ -27,7 +27,7 @@ class Example(QtWidgets.QWidget):
         buttons_layout = QGridLayout()
         buttons_container = QWidget()
         buttons_container.setLayout(buttons_layout)
-        tabs.addTab(buttons_container, "Buttons")
+        self.tabs.addTab(buttons_container, "Buttons")
         buttons_layout.addWidget(QLabel("Enabled"), 0, 1)
         buttons_layout.addWidget(QLabel("Disabled"), 0, 2)
         buttons_layout.setRowStretch(999, 1)
@@ -136,7 +136,7 @@ class Example(QtWidgets.QWidget):
         controls_layout = QGridLayout()
         controls_container = QWidget()
         controls_container.setLayout(controls_layout)
-        tabs.addTab(controls_container, "Controls")
+        self.tabs.addTab(controls_container, "Controls")
         controls_layout.addWidget(QLabel("Enabled"), 0, 1)
         controls_layout.addWidget(QLabel("Disabled"), 0, 2)
         controls_layout.setRowStretch(999, 1)
@@ -261,7 +261,7 @@ class Example(QtWidgets.QWidget):
         inputs_layout = QGridLayout()
         inputs_container = QWidget()
         inputs_container.setLayout(inputs_layout)
-        tabs.addTab(inputs_container, "Inputs")
+        self.tabs.addTab(inputs_container, "Inputs")
         inputs_layout.addWidget(QLabel("Enabled"), 0, 1)
         inputs_layout.addWidget(QLabel("Disabled"), 0, 2)
         inputs_layout.setRowStretch(999, 1)
@@ -368,7 +368,7 @@ class Example(QtWidgets.QWidget):
         displays_layout = QGridLayout()
         displays_container = QWidget()
         displays_container.setLayout(displays_layout)
-        tabs.addTab(displays_container, "Displays")
+        self.tabs.addTab(displays_container, "Displays")
         displays_layout.addWidget(QLabel("Enabled"), 0, 1)
         displays_layout.addWidget(QLabel("Disabled"), 0, 2)
         displays_layout.setRowStretch(999, 1)
@@ -463,7 +463,7 @@ class Example(QtWidgets.QWidget):
         containers_layout = QGridLayout()
         containers_container = QWidget()
         containers_container.setLayout(containers_layout)
-        tabs.addTab(containers_container, "Containers")
+        self.tabs.addTab(containers_container, "Containers")
         containers_layout.addWidget(QLabel("Enabled"), 0, 1)
         containers_layout.addWidget(QLabel("Disabled"), 0, 2)
         containers_layout.setRowStretch(999, 1)
@@ -593,7 +593,7 @@ class Example(QtWidgets.QWidget):
         tabs_layout = QGridLayout()
         tabs_container = QWidget()
         tabs_container.setLayout(tabs_layout)
-        tabs.addTab(tabs_container, "Tabs")
+        self.tabs.addTab(tabs_container, "Tabs")
         tabs_layout.addWidget(QLabel("Enabled"), 0, 1)
         tabs_layout.addWidget(QLabel("Disabled"), 0, 2)
         tabs_layout.setRowStretch(999, 1)
@@ -684,7 +684,7 @@ class Example(QtWidgets.QWidget):
         widgets_layout = QGridLayout()
         widgets_container = QWidget()
         widgets_container.setLayout(widgets_layout)
-        tabs.addTab(widgets_container, "Widgets")
+        self.tabs.addTab(widgets_container, "Widgets")
         widgets_layout.addWidget(QLabel("Enabled"), 0, 1)
         widgets_layout.addWidget(QLabel("Disabled"), 0, 2)
         widgets_layout.setRowStretch(999, 1)
@@ -769,7 +769,7 @@ class Example(QtWidgets.QWidget):
         container.setLayout(layout)
         main_window = QMainWindow()
         main_window.setCentralWidget(container)
-        tabs.addTab(main_window, "Main Window")
+        self.tabs.addTab(main_window, "Main Window")
 
         # QStatusBar
         status_bar = QStatusBar()
@@ -878,11 +878,10 @@ class Example(QtWidgets.QWidget):
         #########################
         # Temp
 
-
         # from pandasgui import show
         # from pandasgui.datasets import all_datasets
         # gui = show(**all_datasets, settings={"block": False})
-        # tabs.addTab(gui, 'PandasGUI')
+        # self.tabs.addTab(gui, 'PandasGUI')
 
 
 if __name__ == "__main__":

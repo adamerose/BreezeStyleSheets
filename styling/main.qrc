@@ -1,31 +1,29 @@
 
 <RCC warning="File created programmatically. All changes made in this file will be lost!">
-  <qresource prefix="resources">
-    <file>resources/arrow_down.png</file>
-    <file>resources/arrow_left.png</file>
-    <file>resources/arrow_right.png</file>
-    <file>resources/arrow_up.png</file>
-    <file>resources/base_icon.png</file>
-    <file>resources/branch_closed.png</file>
-    <file>resources/branch_end.png</file>
-    <file>resources/branch_line.png</file>
-    <file>resources/branch_more.png</file>
-    <file>resources/branch_open.png</file>
-    <file>resources/checkbox_checked.png</file>
-    <file>resources/checkbox_indeterminate.png</file>
-    <file>resources/checkbox_unchecked.png</file>
-    <file>resources/line_horizontal.png</file>
-    <file>resources/line_vertical.png</file>
-    <file>resources/radio_checked.png</file>
-    <file>resources/radio_unchecked.png</file>
-    <file>resources/toolbar_move_horizontal.png</file>
-    <file>resources/toolbar_move_vertical.png</file>
-    <file>resources/toolbar_separator_horizontal.png</file>
-    <file>resources/toolbar_separator_vertical.png</file>
-    <file>resources/transparent.png</file>
-    <file>resources/window_close.png</file>
-    <file>resources/window_grip.png</file>
-    <file>resources/window_minimize.png</file>
-    <file>resources/window_undock.png</file>
+  <qresource>
+    <file>resources/arrow_down.svg</file>
+    <file>resources/arrow_left.svg</file>
+    <file>resources/arrow_right.svg</file>
+    <file>resources/arrow_up.svg</file>
+    <file>resources/branch_closed.svg</file>
+    <file>resources/branch_end.svg</file>
+    <file>resources/branch_line.svg</file>
+    <file>resources/branch_more.svg</file>
+    <file>resources/branch_open.svg</file>
+    <file>resources/checkbox_checked.svg</file>
+    <file>resources/checkbox_indeterminate.svg</file>
+    <file>resources/checkbox_unchecked.svg</file>
+    <file>resources/line_horizontal.svg</file>
+    <file>resources/line_vertical.svg</file>
+    <file>resources/radio_checked.svg</file>
+    <file>resources/radio_unchecked.svg</file>
+    <file>resources/toolbar_move_horizontal.svg</file>
+    <file>resources/toolbar_move_vertical.svg</file>
+    <file>resources/toolbar_separator_horizontal.svg</file>
+    <file>resources/toolbar_separator_vertical.svg</file>
+    <file>resources/close.svg</file>
+    <file>resources/window_grip.svg</file>
+    <file>resources/minimize.svg</file>
+    <file>resources/window_undock.svg</file>
   </qresource>
 </RCC>

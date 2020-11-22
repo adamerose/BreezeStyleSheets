@@ -1516,14 +1516,14 @@ QTabBar {
         margin: 2px;
         padding: 2px;
 
-        image: url($PATH_RESOURCES + '/rc/window_close.png');
+        image: url($PATH_RESOURCES + '/rc/close.png');
 
         &:hover {
-            image: url($PATH_RESOURCES + '/rc/window_close_focus.png');
+            image: url($PATH_RESOURCES + '/rc/close_focus.png');
         }
 
         &:pressed {
-            image: url($PATH_RESOURCES + '/rc/window_close_pressed.png');
+            image: url($PATH_RESOURCES + '/rc/close_pressed.png');
         }
     }
 }
@@ -1766,7 +1766,7 @@ QDockWidget {
     background-color: $BACKGROUND_DARK;
     border: $BORDER_NORMAL;
     border-radius: $SIZE_BORDER_RADIUS;
-    titlebar-close-icon: url($PATH_RESOURCES + '/rc/window_close.png');
+    titlebar-close-icon: url($PATH_RESOURCES + '/rc/close.png');
     titlebar-normal-icon: url($PATH_RESOURCES + '/rc/window_undock.png');
 
 
@@ -1785,11 +1785,11 @@ QDockWidget {
         border: none;
 
         &:hover {
-            image: url($PATH_RESOURCES + '/rc/window_close_focus.png');
+            image: url($PATH_RESOURCES + '/rc/close_focus.png');
         }
 
         &:pressed {
-            image: url($PATH_RESOURCES + '/rc/window_close_pressed.png');
+            image: url($PATH_RESOURCES + '/rc/close_pressed.png');
         }
     }
 

@@ -349,11 +349,11 @@ QComboBox::down-arrow {
 QTabBar::close-button {
   margin: 2px;
   padding: 2px;
-  image: url(":/qss_icons/rc/window_close.png"); }
+  image: url(":/qss_icons/rc/close.png"); }
 
 QDockWidget {
   outline: 1px solid #364050;
-  titlebar-close-icon: url(":/qss_icons/rc/window_close.png");
+  titlebar-close-icon: url(":/qss_icons/rc/close.png");
   titlebar-normal-icon: url(":/qss_icons/rc/window_undock.png"); }
 
 QTreeView:branch:has-siblings:!adjoins-item {
